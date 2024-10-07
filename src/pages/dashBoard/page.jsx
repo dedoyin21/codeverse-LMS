@@ -9,12 +9,15 @@ const Dashboard = () => {
 
     return (
         <div className={`${darkMode ? "dark" : ""}`}>
-            <button
-                className="absolute w-16 h-16 top-16 right-16 bg-white dark:bg-gray-700 rounded-full"
-                onClick={toggleDarkMode}
-            >
-                {darkMode ? "LHT" : "DRK"}
-            </button>
+            <main className="bg-white-600 dark:bg-black">
+                <h1 className="text-slate-900 dark:text-white">Tailwind CSS</h1>
+                <button
+                    className="absolute w-16 h-16 top-16 right-16 bg-white dark:bg-slate-800 rounded-full text-slate-900 dark:text-white"
+                    onClick={toggleDarkMode}
+                >
+                    {darkMode ? "LHT" : "DRK"}
+                </button>
+            </main>
         </div>
     );
 }
