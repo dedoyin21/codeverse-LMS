@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Dashboard() {
+const Dashboard = () => {
     const [darkMode, setDarkMode] = useState(false);
 
     const toggleDarkMode = () => {
@@ -18,3 +18,6 @@ export default function Dashboard() {
         </div>
     );
 }
+
+export default Dashboard;
+
