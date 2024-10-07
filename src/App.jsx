@@ -3,11 +3,8 @@ import { Routes, Route } from "react-router-dom";
 import Topbar from "./scenes/global/topbar";
 import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/board/index";
-import Bar from "./scenes/bar";
-import Form from "./scenes/form";
-import Line from "./scenes/line";
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import { ColorModeContext, useMode } from "./theme";
+import { ColorModeContext, useMode } from "../theme";
 
 function App() {
   const [theme, colorMode] = useMode();
