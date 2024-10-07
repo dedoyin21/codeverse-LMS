@@ -70,3 +70,7 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+* {
+  @apply transition-colors duration-200;
+}
