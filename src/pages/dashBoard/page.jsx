@@ -1,26 +1,35 @@
 import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import Topbar from "./scenes/global/Topbar";
+import Sidebar from "./scenes/global/Sidebar";
+import Dashboard from "./scenes/dashboard";
+import Bar from "./scenes/bar";
+import Form from "./scenes/form";
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import { ColorModeContext, useMode } from "./theme";
 
-const Dashboard = () => {
-    const [darkMode, setDarkMode] = useState(false);
+function App() {
+  const [theme, colorMode] = useMode();
+  const [isSidebar, setIsSidebar] = useState(true);
 
-    const toggleDarkMode = () => {
-        setDarkMode((prevMode) => !prevMode);
-    };
-
-    return (
-        <div className={`${darkMode ? "dark" : ""}`}>
-            <main className="bg-white-600 dark:bg-black">
-                <h1 className="text-slate-900 dark:text-white">Tailwind CSS</h1>
-                <button
-                    className="absolute w-16 h-16 top-16 right-16 bg-white dark:bg-slate-800 rounded-full text-slate-900 dark:text-white"
-                    onClick={toggleDarkMode}
-                >
-                    {darkMode ? "LHT" : "DRK"}
-                </button>
-            </main>
+  return (
+    <ColorModeContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <div className="app">
+          <Sidebar isSidebar={isSidebar} />
+          <main className="content">
+            <Topbar setIsSidebar={setIsSidebar} />
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/form" element={<Form />} />
+              <Route path="/bar" element={<Bar />} />
+            </Routes>
+          </main>
         </div>
-    );
+      </ThemeProvider>
+    </ColorModeContext.Provider>
+  );
 }
 
-export default Dashboard;
-
+export default App;
