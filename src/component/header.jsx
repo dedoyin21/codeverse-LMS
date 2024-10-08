@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { FaMoon, FaSun } from 'react-icons/fa'
-import { ThemeCotext } from '../context/ThemeContextProvider'
+import { ThemeCotext } from '../Context/ThemeContextProvider'
 
 const Navbar = () => {
     const {theme, toggleTheme} = useContext(ThemeCotext)
