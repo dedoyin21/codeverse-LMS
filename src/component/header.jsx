@@ -1,24 +1,17 @@
-import { Typography, Box, useTheme } from "@mui/material";
-import { tokens } from "../theme";
+import React, { useContext } from 'react'
+import { FaMoon, FaSun } from 'react-icons/fa'
+import { ThemeCotext } from '../context/ThemeContextProvider'
 
-const Header = ({ title, subtitle }) => {
-  const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
+const Navbar = () => {
+    const {theme, toggleTheme} = useContext(ThemeCotext)
   return (
-    <Box mb="30px">
-      <Typography
-        variant="h2"
-        color={colors.grey[100]}
-        fontWeight="bold"
-        sx={{ m: "0 0 5px 0" }}
-      >
-        {title}
-      </Typography>
-      <Typography variant="h5" color={colors.greenAccent[400]}>
-        {subtitle}
-      </Typography>
-    </Box>
-  );
-};
+    <div className='bg-gray-100 text-gray-900 border-b border-gray-300 p-4 flex justify-between items-center dark:border-gray-600 dark:bg-gray-900 dark:text-white'>
+        <h1>Dashboard</h1>
+        <button className='text-2xl text-dark' onClick={toggleTheme}>
+            {theme === "light" ? <FaMoon /> : <FaSun />}
+        </button>
+    </div>
+  )
+}
 
-export default Header;
+export default Navbar

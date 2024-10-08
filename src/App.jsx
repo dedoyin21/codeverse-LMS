@@ -1,33 +1,18 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import Topbar from "./scenes/global/topbar";
-import Sidebar from "./scenes/global/Sidebar";
-import Dashboard from "./scenes/board/index";
-import { CssBaseline, ThemeProvider } from "@mui/material";
-import { ColorModeContext, useMode } from "../theme";
+import ThemeContextProvider from './Context/ThemeContextProvider';
+import Dashboard from "./dashboard/page";
+
 
 function App() {
-  const [theme, colorMode] = useMode();
-  const [isSidebar, setIsSidebar] = useState(true);
+  
 
   return (
-    <ColorModeContext.Provider value={colorMode}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <div className="app">
-          <Sidebar isSidebar={isSidebar} />
-          <main className="content">
-            <Topbar setIsSidebar={setIsSidebar} />
-            <Routes>
-              <Route path="/" element={<Dashboard />} />
-              <Route path="/form" element={<Form />} />
-              <Route path="/bar" element={<Bar />} />
-              <Route path="/line" element={<Line />} />
-            </Routes>
-          </main>
-        </div>
-      </ThemeProvider>
-    </ColorModeContext.Provider>
+    <ThemeContextProvider>
+      <Routes>
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+    </ThemeContextProvider>
   );
 }
 
