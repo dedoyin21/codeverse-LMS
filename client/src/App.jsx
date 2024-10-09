@@ -8,11 +8,11 @@ function App() {
   
 
   return (
-    <ThemeContextProvider>
+    <>
       <Routes>
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
-    </ThemeContextProvider>
+    </>
   );
 }
 
