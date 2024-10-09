@@ -5,20 +5,22 @@ import {
   Routes,
   Navigate,
 } from 'react-router-dom'
-import Dashboard from './pages/dashBoard/page'; // Adjust path as needed
-import Home from './home';
-
+import Home from './pages/home'
+import Dashboard from './pages/dashboard'
+import SignUp from './pages/SignUp'
+import SignIn from './pages/SignIn'
 
 function App() {
   return (
-    <Router>
+    <div className="App">
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/dashboard" element={<Dashboard />} /> 
-        
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/sign-in" element={<SignIn />} />
       </Routes>
-    </Router>
-  );
+    </div>
+  )
 }
 
-export default App;
+export default App

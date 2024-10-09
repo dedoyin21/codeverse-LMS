@@ -1,11 +1,10 @@
 import React from 'react'
 import { FaTachometerAlt, FaShoppingCart, FaUsers, FaUser, FaBox, FaCog } from 'react-icons/fa';
-
+import codeverseLogo from '../../src/assets/codeverseLogo.svg'
 
 const Sidebar = () => {
 	return (
 		<div className="bg-gray-100 text-gray-900 h-screen px-4 fixed w-16 md:w-64 border-r border-gray-300 dark:border-gray-600 dark:bg-gray-900 dark:text-white">
-{/* 			<h1 className='text-2xl font-bold hidden md:block mt-4 text-center italic'>Codeverse</h1> */}
 			<img src={codeverseLogo} alt="Logo" />
 
 

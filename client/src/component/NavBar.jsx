@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import codeverseLogo from '../../src/assets/codeverseLogo.svg'
 
 function NavBar() {
   const [navbar, setNavbar] = useState(false)
@@ -10,7 +11,7 @@ function NavBar() {
           <div>
             <div className="flex items-center justify-between py-3 md:py-5 md:block">
               <a href="/" className="flex flex-row gap-4">
-                <img src="/codeverseLogo.svg" width={200} height={200} alt="logo" />
+                <img src={codeverseLogo} width={200} height={200} alt="logo" />
               </a>
 
               <div className="md:hidden">
@@ -45,25 +46,25 @@ function NavBar() {
               }`}
             >
               <div className="flex flex-col md:flex-row">
-                    <div className="flex items-center justify-center mt-4">
-                        <div className="relative">
-                            <input
-                                type="text"
-                                className="bg-custom-cream pl-10 pr-4 py-2 border border-custom-red rounded-2xl focus:outline-none focus:ring-1 focus:ring-custom-blue focus:text-black focus:border-transparent"
-                                placeholder="Search..."
-                            />
-                            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                            <img
-                                src="/search-icon.svg"
-                                alt="Search Icon"
-                                className="w-5 h-5 text-gray-500"
-                            />
-                            </div>
-                        </div>
-                        <button className="ml-2 px-4 py-1 bg-custom-red text-white rounded-2xl hover:bg-custom-orange transition duration-300">
-                            Search
-                        </button>
+                <div className="flex items-center justify-center mt-4">
+                  <div className="relative">
+                    <input
+                      type="text"
+                      className="bg-custom-cream pl-10 pr-4 py-2 border border-custom-red rounded-2xl focus:outline-none focus:ring-1 focus:ring-custom-blue focus:text-black focus:border-transparent"
+                      placeholder="Search..."
+                    />
+                    <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                      <img
+                        src="/search-icon.svg"
+                        alt="Search Icon"
+                        className="w-5 h-5 text-gray-500"
+                      />
                     </div>
+                  </div>
+                  <button className="ml-2 px-4 py-1 bg-custom-red text-white rounded-2xl hover:bg-custom-orange transition duration-300">
+                    Search
+                  </button>
+                </div>
 
                 <ul className="flex flex-col gap-2 ml-4  md:flex-row w-full items-center justify-center md:items-end md:justify-end md:gap-2 md:h-auto mt-0 md:mt-4 ">
                   <li className="pb-6 text-lg font-sans font-light text-black py-2 md:px-4 text-center hover:underline hover:decoration-custom-red hover:underline-offset-2">
@@ -76,20 +77,19 @@ function NavBar() {
                       Latest News
                     </a>
                   </li>
-                  
                 </ul>
 
                 <div className="flex justify-center">
-                    <Link href="/login">
-                        <button className="bg-custom-red text-base text-white px-2 py-1 border-2  border-custom-red rounded-2xl md:ml-10 md:mt-6 hover:bg-custom-cream hover:text-custom-red">
-                        Login
-                        </button>
-                    </Link>
-                    <a href="/signup">
-                        <button className="bg-custom-red text-xl text-white px-4 py-2 border-2  border-custom-red  md:ml-4 md:mt-4 rounded-xl hover:bg-custom-cream hover:text-custom-red">
-                            SignUp
-                        </button>
-                    </a>
+                  <Link to="/sign-in">
+                    <button className="bg-custom-red text-base text-white px-2 py-1 border-2  border-custom-red rounded-2xl md:ml-10 md:mt-6 hover:bg-custom-cream hover:text-custom-red">
+                      Login
+                    </button>
+                  </Link>
+                  <Link to="/sign-up">
+                    <button className="bg-custom-red text-xl text-white px-4 py-2 border-2  border-custom-red  md:ml-4 md:mt-4 rounded-xl hover:bg-custom-cream hover:text-custom-red">
+                      SignUp
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>

@@ -27,7 +27,7 @@ app.use((err, req, res, next) => {
 })
 
 const corsOptions = {
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  origin: process.env.FRONTEND_URL || 'http://localhost:5173/',
   optionsSuccessStatus: 200,
 }
 
