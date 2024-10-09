@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
+:root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -17,23 +17,27 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+
 body {
   margin: 0;
-  display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
 
 
+
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: #F6F0E3;
+    background-color: #F6F0E3;
   }
- 
+  a:hover {
+    color:#A74747 ;
+  }
+  button {
+    background-color: #F6F0E3;
+  }
 }
 
-* {
-  @apply transition-colors duration-200;
-} */

@@ -1,74 +1,79 @@
 import React, { useState } from "react";
-import { useRouter } from "next/router";
+import NavBar from "../component/NavBar";
+
 
 function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const router = useRouter();
-
-  const onSubmit = (e) => {
-    e.preventDefault();
-    // Handle login logic here (e.g., authentication)
-    console.log("Email:", email, "Password:", password);
-
-    // Redirect to dashboard after successful login (example)
-    router.push("/dashboard");
-  };
-
+ 
   return (
-    <div>
-      <form onSubmit={onSubmit} className="space-y-12 w-full sm:w-[400px]">
-        <div className="grid w-full items-center gap-1.5">
-          <label htmlFor="email" className="block text-sm font-medium">
-            Email
-          </label>
-          <input
-            className="w-full p-2 border border-gray-300 rounded"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)} // Updates email state
-            id="email"
-            type="email"
-            placeholder="Enter your email"
-          />
+    <>
+      <NavBar/>
+      <div className="flex justify-center items-center  bg-custom-cream">
+        <div className="bg-gray-300 flex flex-col gap-8 p-8 rounded-lg shadow-lg w-[1000px] max-w-md">
+          <div className="flex flex-col gap-1 justify-center items-center">
+            <h2 className="text-2xl font-sans font-bold mb-6 text-center text-black">
+              Login
+            </h2>
+                
+            <img src="/codeverseLogo.svg" width={60} height={28} alt="logo" />
+          </div>
+                  
+          <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+            <div className="flex flex-col">
+              <div>
+                <label
+                  htmlFor="emailOrUsername"
+                  className="font-medium text-black text-left"
+                >
+                  Email or Username
+                </label>
+                <input
+                  type="text"
+                  name="emailOrUsername"
+                  value={values.emailOrUsername}
+                  placeholder="Enter email address or username"
+                  onChange={handleInput}
+                  className=" text-black px-2 py-3 border-2 rounded-lg focus:bg-transparent focus:outline-none focus:placeholder-transparent"
+                />
+              </div>
+              <div className="flex flex-col">
+                <label
+                  htmlFor="password"
+                  className="font-medium text-black text-left"
+                >
+                  Password
+                </label>
+                <input
+                  type="password"
+                  name="password"
+                  value={values.password}
+                  placeholder="Enter password"
+                  onChange={handleInput}
+                  className="text-black px-8 py-3 border-2 rounded-lg focus:bg-transparent focus:outline-none focus:placeholder-transparent"
+                  required
+                />
+              </div>
+            </div>
+            <button
+              type="submit"
+              className="bg-custom-red border text-white py-2 px-4 rounded-lg hover:broder-none hover:text-black hover:bg-custom-red"
+            >
+            </button>
+            <p className="text-center text-black">
+              Don't have an account yet?{' '}
+              <span>
+                <Link
+                  to="/career/register"
+                  className="text-custom-red hover:text-custom-purple hover:underline"
+                >
+                 Sign Up
+                </Link>
+              </span>
+            </p>
+          </form>
         </div>
-
-        <div className="grid w-full items-center gap-1.5">
-          <label htmlFor="password" className="block text-sm font-medium">
-            Password
-          </label>
-          <input
-            className="w-full p-2 border border-gray-300 rounded"
-            required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)} // Updates password state
-            id="password"
-            type="password"
-            placeholder="Enter your password"
-          />
-        </div>
-
-        <div className="w-full">
-          <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600">
-            Login
-          </button>
-        </div>
-      </form>
-
-      <div>
-        <button
-          className="w-full mt-4 bg-red-500 text-white py-2 rounded hover:bg-red-600"
-        >
-          Sign in with Google
-        </button>
-        <p className="text-center mt-4">
-          Need to create an account?{' '}
-          <a className="text-indigo-500 hover:underline" href="/register">
-            Create Account
-          </a>
-        </p>
       </div>
-    </div>
+      
+    </>
   );
 }
 
