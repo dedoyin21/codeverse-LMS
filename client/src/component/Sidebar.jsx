@@ -1,4 +1,4 @@
-import React from 'react'
+/* import React from 'react'
 import { FaTachometerAlt, FaShoppingCart, FaUsers, FaUser, FaBox, FaCog } from 'react-icons/fa';
 import codeverseLogo from '../../src/assets/codeverseLogo.svg'
 
@@ -48,162 +48,59 @@ const Sidebar = () => {
 	)
 }
 
-export default Sidebar 
+export default Sidebar  */
 
-/* import { useState } from "react";
+import { FaAngleDoubleLeft, FaAngleDoubleRight, FaEllipsisV } from "react-icons/fa";
+import codeverseLogo from '../../src/assets/codeverseLogo.svg'
+/* import profile from "../assets/profile.png";
+ */import { createContext, useContext, useState } from "react";
 
-const Sidebar = () => {
-  const [open, setOpen] = useState(true);
-  const Menus = [
-    { title: "Dashboard", src: "Chart_fill" },
-    { title: "Inbox", src: "Chat" },
-    { title: "Accounts", src: "User", gap: true },
-    { title: "Schedule ", src: "Calendar" },
-    { title: "Search", src: "Search" },
-    { title: "Analytics", src: "Chart" },
-    { title: "Files ", src: "Folder", gap: true },
-    { title: "Setting", src: "Setting" },
-  ];
+const SidebarContext = createContext();
 
-  return (
-    <div className="flex">
-      <div
-        className={` ${
-          open ? "w-72" : "w-20 "
-        } bg-dark-purple h-screen p-5  pt-8 relative duration-300`}
-      >
-        <img
-          src="./src/assets/control.png"
-          className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple
-           border-2 rounded-full  ${!open && "rotate-180"}`}
-          onClick={() => setOpen(!open)}
-        />
-        <div className="flex gap-x-4 items-center">
-          <img
-            src="./src/assets/logo.png"
-            className={`cursor-pointer duration-500 ${
-              open && "rotate-[360deg]"
-            }`}
-          />
-          <h1
-            className={`text-white origin-left font-medium text-xl duration-200 ${
-              !open && "scale-0"
-            }`}
-          >
-            Designer
-          </h1>
-        </div>
-        <ul className="pt-6">
-          {Menus.map((Menu, index) => (
-            <li
-              key={index}
-              className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4 
-              ${Menu.gap ? "mt-9" : "mt-2"} ${
-                index === 0 && "bg-light-white"
-              } `}
-            >
-              <img src={`./src/assets/${Menu.src}.png`} />
-              <span className={`${!open && "hidden"} origin-left duration-200`}>
-                {Menu.title}
-              </span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  );
-};
-export default Sidebar */
+export default function Sidebar({ children }) {
+    const [expanded, setExpanded] = useState(true);
+    return (
+        <aside className="h-screen">
+            <div className="h-full flex flex-col bg-white border-r shadow-sm">
+                <div className="p-4 pb-2 flex justify-between items-center">
+                    <img src={codeverseLogo} className={`overflow-hidden transition-all ${expanded ? "w-32" : "w-0"}`} alt="Logo" />
+                    <button onClick={() => setExpanded((curr) => !curr)} className="p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100">
+                        {expanded ? <FaAngleDoubleLeft /> : <FaAngleDoubleRight />}
+                    </button>
+                </div>
 
-/* import React, { useState, useEffect } from "react";
-import { HiMenuAlt3 } from "react-icons/hi";
-import { MdOutlineDashboard } from "react-icons/md";
-import { RiSettings4Line } from "react-icons/ri";
-import { TbReportAnalytics } from "react-icons/tb";
-import { AiOutlineUser, AiOutlineHeart } from "react-icons/ai";
-import { FiMessageSquare, FiFolder, FiShoppingCart } from "react-icons/fi";
-import { Link } from "react-router-dom";
+                <SidebarContext.Provider value={{ expanded }}>
+                    <ul className="flex-1 px-3">{children}</ul>
+                </SidebarContext.Provider>
 
-const Sidebar = () => {
-  const [open, setOpen] = useState(false);
+                <div className="border-t flex p-3">
+                    <div className={`flex justify-between items-center overflow-hidden transition-all ${expanded ? "w-52 ml-3" : "w-0"}`}>
+                        <div className="leading-4">
+                            <h4 className="font-semibold">constGenius</h4>
+                            <span className="text-xs text-gray-600">constgenius@gmail.com</span>
+                        </div>
+                        <FaEllipsisV size={20} />
+                    </div>
+                </div>
+            </div>
+        </aside>
+    );
+}
 
-  // Handle screen resize to automatically close the sidebar on mobile
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 640) {
-        setOpen(false);
-      }
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const menus = [
-    { name: "Dashboard", link: "/", icon: MdOutlineDashboard },
-    { name: "User", link: "/", icon: AiOutlineUser },
-    { name: "Messages", link: "/", icon: FiMessageSquare },
-    { name: "Analytics", link: "/", icon: TbReportAnalytics, margin: true },
-    { name: "File Manager", link: "/", icon: FiFolder },
-    { name: "Cart", link: "/", icon: FiShoppingCart },
-    { name: "Saved", link: "/", icon: AiOutlineHeart, margin: true },
-    { name: "Setting", link: "/", icon: RiSettings4Line },
-  ];
-
-  return (
-    <section className="relative flex">
-      
-      <div
-        className={`bg-[#0e0e0e] min-h-screen w-72 duration-500 text-gray-100 px-4 fixed top-0 left-0 h-full z-30 sm:hidden ${
-          open ? "block" : "hidden"
-        }`}
-      >
-        <div className="py-3 flex justify-end">
-          <HiMenuAlt3
-            size={26}
-            className="cursor-pointer"
-            onClick={() => setOpen(!open)}
-          />
-        </div>
-        <div className="mt-4 flex flex-col gap-4 relative">
-          {menus?.map((menu, i) => (
-            <Link
-              to={menu?.link}
-              key={i}
-              className={` ${menu?.margin && "mt-5"} group flex items-center text-sm gap-3.5 font-medium p-2 hover:bg-gray-800 rounded-md`}
-            >
-              <div>{React.createElement(menu?.icon, { size: "20" })}</div>
-              <h2 className="whitespace-pre duration-500">{menu?.name}</h2>
-            </Link>
-          ))}
-        </div>
-      </div>
-
-     
-      <div className={`bg-[#0e0e0e] min-h-screen w-72 duration-500 text-gray-100 px-4 hidden sm:block`}>
-        <div className="py-3 flex justify-end">
-          <HiMenuAlt3
-            size={26}
-            className="cursor-pointer"
-            onClick={() => setOpen(!open)}
-          />
-        </div>
-        <div className="mt-4 flex flex-col gap-4 relative">
-          {menus?.map((menu, i) => (
-            <Link
-              to={menu?.link}
-              key={i}
-              className={` ${menu?.margin && "mt-5"} group flex items-center text-sm gap-3.5 font-medium p-2 hover:bg-gray-800 rounded-md`}
-            >
-              <div>{React.createElement(menu?.icon, { size: "20" })}</div>
-              <h2 className="whitespace-pre duration-500">{menu?.name}</h2>
-            </Link>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default Sidebar; */
+export function SidebarItem({ icon, text, active, alert }) {
+    const { expanded } = useContext(SidebarContext);
+    return (
+        <li className={`relative flex items-center py-2 px-3 my-1 font-medium rounded-md cursor-pointer transition-colors group ${active ? "bg-gradient-to-tr from-indigo-200 to-indigo-100 text-indigo-800" : "hover:bg-indigo-50 text-gray-600"}`}>
+            {icon}
+            <span className={`overflow-hidden transition-all ${expanded ? "w-52 ml-3" : "w-0"}`}>{text}</span>
+            {alert && <div className={`absolute right-2 w-2 h-2 rounded bg-indigo-400 ${expanded ? "" : "top-2"}`} />}
+            {!expanded && (
+                <div className={`absolute left-full rounded-md px-2 py-1 ml-6 bg-indigo-100 text-indigo-800 text-sm invisible opacity-20 -translate-x-3 transition-all group-hover:visible group-hover:opacity-100 group-hover:translate-x-0`}>
+                    {text}
+                </div>
+            )}
+        </li>
+    );
+}
 
 
