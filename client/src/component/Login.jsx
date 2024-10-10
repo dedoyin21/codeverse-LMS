@@ -40,8 +40,8 @@ const Login = () => {
   return (
     <div className="min-h-screen bg-custom-cream">
       <NavBar />
-      <div className="flex justify-center items-center pt-10">
-        <div className="bg-gray-300 flex flex-col gap-8 p-8 rounded-lg shadow-lg w-[400px] max-w-md">
+      <div className="flex justify-center items-center  bg-custom-cream mt-10 md:mt-36">
+        <div className="bg-yellow-50 flex flex-col gap-8 p-8 rounded-lg shadow-lg w-[1000px] max-w-md">
           <div className="flex flex-col gap-1 justify-center items-center">
             <h2 className="text-2xl font-sans font-bold mb-6 text-center text-black">
               Login

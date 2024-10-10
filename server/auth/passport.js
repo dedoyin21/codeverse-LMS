@@ -9,6 +9,8 @@ const {
   findUserByGoogleId,
   findUserByGitHubId,
   findUserById,
+  updateUserGoogleId,
+  updateUserGithubId,
 } = require('../models/user')
 
 passport.use(
@@ -47,11 +49,17 @@ passport.use(
       try {
         let user = await findUserByGoogleId(profile.id)
         if (!user) {
-          user = await createUser({
-            email: profile.emails[0].value,
-            name: profile.displayName,
-            google_id: profile.id, 
-          })
+          user = await findUserByEmail(profile.emails[0].value)
+          if (user) {
+            user = await updateUserGoogleId(user.id, profile.id)
+          } else {
+            user = await createUser({
+              email: profile.emails[0].value,
+              name: profile.displayName,
+              google_id: profile.id,
+              role: 'user', 
+            })
+          }
         }
         return done(null, user)
       } catch (error) {
@@ -67,16 +75,28 @@ passport.use(
       clientID: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
       callbackURL: process.env.GITHUB_CALLBACK_URL,
+      scope: ['user:email'], 
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
         let user = await findUserByGitHubId(profile.id)
         if (!user) {
-          user = await createUser({
-            email: profile.emails[0].value,
-            name: profile.displayName,
-            github_id: profile.id, 
-          })
+          const email =
+            profile.emails && profile.emails[0]
+              ? profile.emails[0].value
+              : `${profile.username}@github.com`
+
+          user = await findUserByEmail(email)
+          if (user) {
+            user = await updateUserGithubId(user.id, profile.id)
+          } else {
+            user = await createUser({
+              email: email,
+              name: profile.displayName || profile.username,
+              github_id: profile.id,
+              role: 'student',
+            })
+          }
         }
         return done(null, user)
       } catch (error) {
@@ -85,7 +105,6 @@ passport.use(
     }
   )
 )
-
 passport.serializeUser((user, done) => {
   done(null, user.id)
 })

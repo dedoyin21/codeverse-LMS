@@ -47,15 +47,14 @@ async function createUser({
   google_id = null,
   role = 'student',
 }) {
-  const hashedPassword = password ? await bcrypt.hash(password, 10) : null
-
+  const hashedPassword = password ? await bcrypt.hash(password, 10) : null 
   const query = `
     INSERT INTO users (id, email, name, hashed_password, github_id, google_id, role)
     VALUES (gen_random_uuid(), $1, $2, $3, $4, $5, $6)
     RETURNING *;
   `
 
-  const values = [email, name, hashedPassword, github_id, google_id, role] 
+  const values = [email, name, hashedPassword, github_id, google_id, role]
 
   try {
     const result = await pool.query(query, values)
@@ -65,6 +64,7 @@ async function createUser({
     throw err
   }
 }
+
 
 
 async function findUserByEmail(email) {
@@ -123,6 +123,44 @@ async function findUserById(id) {
   }
 }
 
+
+async function updateUserGoogleId(userId, googleId) {
+  const query = `
+    UPDATE users
+    SET google_id = $1
+    WHERE id = $2
+    RETURNING *;
+  `
+  const values = [googleId, userId]
+
+  try {
+    const result = await pool.query(query, values)
+    return result.rows[0]
+  } catch (err) {
+    console.error('Error updating user Google ID:', err)
+    throw err
+  }
+}
+
+async function updateUserGithubId(userId, githubId) {
+  const query = `
+    UPDATE users
+    SET github_id = $1
+    WHERE id = $2
+    RETURNING *;
+  `
+  const values = [githubId, userId]
+
+  try {
+    const result = await pool.query(query, values)
+    return result.rows[0]
+  } catch (err) {
+    console.error('Error updating user GitHub ID:', err)
+    throw err
+  }
+}
+
+
 module.exports = {
   createUser,
   findUserByEmail,
@@ -130,4 +168,6 @@ module.exports = {
   findUserByGoogleId,
   findUserByGitHubId,
   findUserById,
+  updateUserGoogleId,
+  updateUserGithubId,
 }

@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { MailIcon, GithubIcon } from 'lucide-react'
+import NavBar from "./NavBar";
+import codeverseLogo from '../../src/assets/codeverseLogo.svg'
+import { GithubIcon, MailIcon } from 'lucide-react'
+
 
 function Signup() {
   const [name, setName] = useState('')
@@ -145,6 +148,7 @@ function Signup() {
         </p>
       </div>
     </div>
+
   )
 }
 
