@@ -9,8 +9,7 @@ function Hero() {
                     <div className="flex flex-col md:flex-row gap-8 px-6 md:px-6 mt-32 md:mt-28 ">
                         <div className="flex flex-col gap-4 mt-16">
                             <h1 className="text-custom-red text-4xl font-serif font-semibold text-left justify-center">
-                                "Discover a dynamic learning experience that empowers you to master the latest technologies, build innovative solutions,
-                                and shape your future in a world driven by digital transformation..."
+                                "Empowering Techinnovators Around the World"
                             </h1>
                             <p>Read more</p>
                             <div>
@@ -20,14 +19,14 @@ function Hero() {
                             </div>
 
                         </div>
-                        <div>
+                      {/*   <div>
                             <img
                                 src="/pict1.jpg"
                                 alt="pict"
                                 className="scale-[0.7] text-gray-500"
                             />
                             
-                        </div>
+                        </div> */}
                         
                     </div>
                 </div>
