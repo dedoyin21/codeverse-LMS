@@ -9,13 +9,21 @@ import Home from './pages/home'
 import Dashboard from './pages/dashboard'
 import SignUp from './pages/SignUp'
 import SignIn from './pages/SignIn'
+import ProtectedRoute from './ProtectedRoutes'
 
 function App() {
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/sign-in" element={<SignIn />} />
       </Routes>

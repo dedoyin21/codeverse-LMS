@@ -1,6 +1,37 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom'
 
 function Signup() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
+  const handleSignUp = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await fetch('http://localhost:8080/auth/local/signup', {
+        method: POST,
+        credentials: 'include',
+        headers: {
+          'content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          password,
+        }),
+      })
+      if (response.ok) {
+        navigate('dashboard');
+      } else {
+        const errorData = await response.json();
+        console.error(errorData)
+      }
+    } catch (error) {
+      console.error('Error during Sign Up:', error);
+    }
+  }
   return (
     <div>
       <form className="space-y-12 w-full sm:w-[400px]">
@@ -14,6 +45,8 @@ function Signup() {
             id="name"
             type="text"
             placeholder="Enter your full name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
         </div>
 
@@ -27,6 +60,8 @@ function Signup() {
             id="email"
             type="email"
             placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
 
@@ -40,6 +75,8 @@ function Signup() {
             id="password"
             type="password"
             placeholder="Create a password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
 
