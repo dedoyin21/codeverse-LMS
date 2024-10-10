@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import NavBar from '../component/NavBar'
 import Hero from '../component/Hero'
+import Courses from '../component/Courses'
+
 
 function Home() {
   const [count, setCount] = useState(0)
@@ -8,6 +10,7 @@ function Home() {
     <>
       <NavBar />
       <Hero />
+      <Courses />
     </>
   )
 }
