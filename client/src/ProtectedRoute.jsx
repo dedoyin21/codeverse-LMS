@@ -7,9 +7,12 @@ function ProtectedRoute({ children }) {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const response = await fetch('http://localhost:8080/checkAuth', {
-          credentials: 'include',
-        })
+        const response = await fetch(
+          'https://codeverse-lms.onrender.com/checkAuth',
+          {
+            credentials: 'include',
+          }
+        )
         setIsAuthenticated(response.ok)
       } catch (error) {
         console.error('Auth check failed:', error)
