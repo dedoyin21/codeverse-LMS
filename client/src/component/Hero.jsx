@@ -9,7 +9,7 @@ function Hero() {
                     <div className="flex flex-col md:flex-row gap-8 px-6 md:px-6 items-start">
                         <div className="flex flex-col gap-4 w-1/2 mt-32 self-stretch">
                             <h1 className="text-custom-red  text-5xl font-serif font-semibold text-left">
-                                Empowering Techinnovators Around the World.
+                            "Empowering Techinnovators Around the World"
                             </h1>
                             
                             <div>
@@ -19,26 +19,23 @@ function Hero() {
                             </div>
                         </div>
 
-                        <div className="flex flex-row mt-4">
-                            <div className="w-2/3">
+                        <div className="flex flex-row mt-10">
+                            <img
+                            src="/pict-frontpage.jpg"
+                            alt="pict"
+                            className=" rounded-t-full"
+                            />
+                            <div className="self-stretch m-32 w-1/5">
                                 <img
                                 src="/group-2.jpg"
-                                alt="pict"
-                                className=""
-                                />
-                            </div>
-                           
-                            {/* <div className="mt-28 w-1/3">
-                                <img
-                                src="/pict-frontpage.jpg"
-                                alt="pict2"
-                                className=" rounded-t-full"
+                                alt="group-2"
+                                className=" rounded-full"
                                 />
                                 <div>
                                     <h1 className="text-custom-blue text-4xl font-bold">91%</h1>
                                     <p className="w-[200px] text-custom-blue text-sm ">Student success from our online course</p>
                                 </div>
-                            </div> */}
+                            </div>
                         </div>
                         
                     </div>

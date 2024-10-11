@@ -51,7 +51,6 @@ const Sidebar = () => {
 export default Sidebar  */
 
 import { FaAngleDoubleLeft, FaAngleDoubleRight, FaEllipsisV } from "react-icons/fa";
-import codeverseLogo from '../../src/assets/codeverseLogo.svg'
 /* import profile from "../assets/profile.png";
  */import { createContext, useContext, useState } from "react";
 
@@ -63,7 +62,6 @@ export default function Sidebar({ children }) {
         <aside className="h-screen">
             <div className="h-full flex flex-col bg-white border-r shadow-sm">
                 <div className="p-4 pb-2 flex justify-between items-center">
-                    <img src={codeverseLogo} className={`overflow-hidden transition-all ${expanded ? "w-32" : "w-0"}`} alt="Logo" />
                     <button onClick={() => setExpanded((curr) => !curr)} className="p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100">
                         {expanded ? <FaAngleDoubleLeft /> : <FaAngleDoubleRight />}
                     </button>
