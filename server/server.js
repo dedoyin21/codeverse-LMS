@@ -177,13 +177,18 @@ app.post(
 )
 
 app.get('/checkAuth', (req, res) => {
+  console.log('Session ID:', req.sessionID)
   console.log('Session:', req.session)
   console.log('User:', req.user)
   console.log('Is Authenticated:', req.isAuthenticated())
+  console.log('Cookies:', req.cookies)
+
   if (req.isAuthenticated()) {
     res.sendStatus(200)
   } else {
-    res.sendStatus(401)
+    res
+      .status(401)
+      .json({ message: 'Not authenticated', sessionExists: !!req.session })
   }
 })
 
