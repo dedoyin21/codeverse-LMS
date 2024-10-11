@@ -1,23 +1,24 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import NavBar from "./NavBar";
 import codeverseLogo from '../../src/assets/codeverseLogo.svg'
+import { GithubIcon, MailIcon } from 'lucide-react'
 
 
 function Signup() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const navigate = useNavigate();
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const navigate = useNavigate()
 
   const handleSignUp = async (event) => {
-    event.preventDefault();
+    event.preventDefault()
     try {
-      const response = await fetch('http://localhost:8080/auth/local/signup', {
-        method: POST,
+      const response = await fetch('https://codeverse-lms.onrender.com/auth/local/signup', {
+        method: 'POST',
         credentials: 'include',
         headers: {
-          'content-Type': 'application/json',
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           name,
@@ -25,101 +26,130 @@ function Signup() {
           password,
         }),
       })
+
       if (response.ok) {
-        navigate('dashboard');
+        navigate('/dashboard')
       } else {
-        const errorData = await response.json();
+        const errorData = await response.json()
         console.error(errorData)
       }
     } catch (error) {
-      console.error('Error during Sign Up:', error);
+      console.error('Error during Sign Up:', error)
     }
   }
+
+  const handleOAuthSignUp = (provider) => {
+    window.location.href = `https://codeverse-lms.onrender.com/auth/${provider}`
+  }
+
   return (
-    <>
-      <NavBar />
-      <div className="flex justify-center items-center bg-custom-cream mt-10 md:mt-36 ">
-        <div className="bg-yellow-50 flex flex-col gap-8 p-8 rounded-lg shadow-lg w-[1000px] max-w-md">
-          <div className="flex flex-col gap-0 justify-center items-center">
-            <h1 className=" text-3xl md:text-4xl font-sans font-bold mb-6 text-center text-black">Sign Up</h1>
-            <a href="/">
-              <img src={codeverseLogo} width={200} height={200} alt="logo" />
-            </a>
-            
+    <div className="min-h-screen bg-custom-cream flex justify-center items-center">
+      <div className="bg-gray-300 flex flex-col gap-8 p-8 rounded-lg shadow-lg w-[400px] max-w-md">
+        <h2 className="text-2xl font-sans font-bold mb-6 text-center text-black">
+          Sign Up
+        </h2>
+
+        <form className="space-y-6" onSubmit={handleSignUp}>
+          <div className="grid w-full items-center gap-1.5">
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-black"
+            >
+              Name
+            </label>
+            <input
+              className="w-full p-2 border border-gray-300 rounded"
+              required
+              id="name"
+              type="text"
+              placeholder="Enter your full name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
           </div>
-          <form className="flex flex-col gap-6">
-            <div className="grid w-full items-center gap-1.5">
-              <label htmlFor="name" className="font-medium text-black text-left">
-                Name
-              </label>
-              <input
-                className="text-black px-8 py-3 border-2 rounded-lg focus:bg-transparent focus:outline-none focus:placeholder-transparent"
-                required
-                id="name"
-                type="text"
-                placeholder="Enter your full name"
-              />
-            </div>
 
-            <div className="grid w-full items-center gap-1.5">
-              <label htmlFor="email" className="font-medium text-black text-left">
-                Email
-              </label>
-              <input
-                className="text-black px-8 py-3 border-2 rounded-lg focus:bg-transparent focus:outline-none focus:placeholder-transparent"
-                required
-                id="email"
-                type="email"
-                placeholder="Enter your email"
-              />
-            </div>
-
-            <div className="grid w-full items-center gap-1.5">
-              <label htmlFor="password" className="font-medium text-black text-left">
-                Password
-              </label>
-              <input
-                className="text-black px-8 py-3 border-2 rounded-lg focus:bg-transparent focus:outline-none focus:placeholder-transparent"
-                required
-                id="password"
-                type="password"
-                placeholder="Create a password"
-              />
-            </div>
-
-            <div className="w-full">
-              <button
-                type="submit"
-                className="w-full bg-custom-red text-white py-2 rounded hover:bg-custom-cream hover:text-custom-red"
-              >
-                Create Account
-              </button>
-            </div>
-          </form>
-          <div className="flex flex-col gap-0">
-            <div className="flex items-center">
-              <hr className="flex-grow border-t border-gray-300" />
-              <span className="mx-4 text-gray-700 font-semibold">OR</span>
-              <hr className="flex-grow border-t border-gray-300" />
-              </div>
-
-            <div>
-              <button className="w-full mt-4 bg-red-950 text-white py-2 rounded hover:bg-custom-cream hover:text-custom-red">
-                Sign up with Google
-              </button>
-              <p className="text-center mt-4 text-black">
-                Already have an account?{' '}
-                <a className="text-custom-red hover:underline" href="/sign-in">
-                  Login here
-                </a>
-              </p>
-            </div>
+          <div className="grid w-full items-center gap-1.5">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-black"
+            >
+              Email
+            </label>
+            <input
+              className="w-full p-2 border border-gray-300 rounded"
+              required
+              id="email"
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </div>
+
+          <div className="grid w-full items-center gap-1.5">
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-black"
+            >
+              Password
+            </label>
+            <input
+              className="w-full p-2 border border-gray-300 rounded"
+              required
+              id="password"
+              type="password"
+              placeholder="Create a password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+
+          <div className="w-full">
+            <button
+              type="submit"
+              className="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600"
+            >
+              Create Account
+            </button>
+          </div>
+        </form>
+
+        <div className="flex items-center">
+          <hr className="flex-grow border-t border-gray-400" />
+          <span className="px-3 text-gray-500">or</span>
+          <hr className="flex-grow border-t border-gray-400" />
         </div>
+
+        <div className="flex flex-col gap-3">
+          <button
+            onClick={() => handleOAuthSignUp('google')}
+            className="flex items-center justify-center gap-2 bg-white text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-100 transition duration-300 border border-gray-300"
+          >
+            <MailIcon size={20} />
+            Sign up with Google
+          </button>
+          <button
+            onClick={() => handleOAuthSignUp('github')}
+            className="flex items-center justify-center gap-2 bg-gray-800 text-white py-2 px-4 rounded-lg hover:bg-gray-700 transition duration-300"
+          >
+            <GithubIcon size={20} />
+            Sign up with GitHub
+          </button>
+        </div>
+
+        <p className="text-center text-black">
+          Already have an account?{' '}
+          <a
+            className="text-custom-red hover:text-custom-purple hover:underline"
+            href="/sign-in"
+          >
+            Login here
+          </a>
+        </p>
       </div>
-    </>
+    </div>
 
   )
 }
 
-export default Signup;
+export default Signup
