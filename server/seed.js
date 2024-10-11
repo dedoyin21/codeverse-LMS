@@ -1,42 +1,44 @@
-const {
-  User,
-  Course,
-  Enrollment,
-  Content,
-  Progress,
-  Payment,
-} = require('./models')
+const bcrypt = require('bcrypt');
+const { User, Course, Enrollment, Content, Progress, Payment } = require('./models');
+const { sequelize } = require('./config/database')
 
+async function hashPassword(password) {
+  const salt = await bcrypt.genSalt(10)
+  return bcrypt.hash(password, salt)
+}
 async function seedDatabase() {
   try {
+    
+    await sequelize.sync({ force: true }); 
+
     const users = await User.bulkCreate([
       {
         email: 'student1@example.com',
         name: 'Student One',
-        password: 'password123',
+        password: await hashPassword('password123'),
         role: 'student',
       },
       {
         email: 'student2@example.com',
         name: 'Student Two',
-        password: 'password123',
+        password: await hashPassword('password123'),
         role: 'student',
       },
       {
         email: 'instructor1@example.com',
         name: 'Instructor One',
-        password: 'password123',
+        password: await hashPassword('password123'),
         role: 'instructor',
       },
       {
         email: 'admin@example.com',
         name: 'Admin User',
-        password: 'password123',
+        password: await hashPassword('password123'),
         role: 'admin',
       },
     ])
 
-    // Sample Courses
+    
     const courses = await Course.bulkCreate([
       {
         title: 'Introduction to Programming',
@@ -58,7 +60,7 @@ async function seedDatabase() {
       },
     ])
 
-    // Sample Enrollments
+    
     await Enrollment.bulkCreate([
       { UserId: users[0].id, CourseId: courses[0].id },
       { UserId: users[0].id, CourseId: courses[1].id },
@@ -66,7 +68,7 @@ async function seedDatabase() {
       { UserId: users[1].id, CourseId: courses[2].id },
     ])
 
-    // Sample Content
+    
     const content = await Content.bulkCreate([
       {
         title: 'Variables and Data Types',
@@ -106,7 +108,6 @@ async function seedDatabase() {
       },
     ])
 
-    // Sample Progress
     await Progress.bulkCreate([
       {
         UserId: users[0].id,
@@ -134,7 +135,7 @@ async function seedDatabase() {
       },
     ])
 
-    // Sample Payments
+
     await Payment.bulkCreate([
       {
         UserId: users[0].id,
@@ -150,10 +151,19 @@ async function seedDatabase() {
       },
     ])
 
-    console.log('Database seeded successfully')
+   
+
+    console.log('Database seeded successfully');
   } catch (error) {
-    console.error('Error seeding database:', error)
+    console.error('Error seeding database:', error);
+    process.exit(1);
+  } finally {
+    await sequelize.close();
   }
 }
 
-module.exports = seedDatabase
+seedDatabase().then(() => {
+  console.log('Seeding complete. Exiting...');
+  process.exit(0);
+});
+
