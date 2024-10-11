@@ -21,7 +21,7 @@ function ProtectedRoute({ children }) {
     }
 
     checkAuth()
-  }, [])
+  }, []); {/*There is an issue with the backend server but it seems to be working fine on localhost*/}
 
   if (isAuthenticated === null) {
     return <div>Loading...</div>
