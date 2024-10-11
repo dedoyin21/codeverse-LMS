@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { Navigate } from 'react-router-dom'
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080'
+
 function ProtectedRoute({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(null)
 
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const response = await fetch(
-          'https://codeverse-lms.onrender.com/checkAuth',
-          {
-            credentials: 'include',
-          }
-        )
+        const response = await fetch(`${API_URL}/checkAuth`, {
+          credentials: 'include',
+        })
         setIsAuthenticated(response.ok)
       } catch (error) {
         console.error('Auth check failed:', error)
@@ -21,7 +20,7 @@ function ProtectedRoute({ children }) {
     }
 
     checkAuth()
-  }, []); {/*There is an issue with the backend server but it seems to be working fine on localhost*/}
+  }, [])
 
   if (isAuthenticated === null) {
     return <div>Loading...</div>
