@@ -2,7 +2,7 @@ require('dotenv').config()
 const express = require('express')
 const helmet = require('helmet')
 const session = require('express-session')
-const passport = require('./auth/passport') 
+const passport = require('./auth/passport')
 const cors = require('cors')
 const bcrypt = require('bcrypt')
 const { Pool } = require('pg')
@@ -10,7 +10,6 @@ const { body, validationResult } = require('express-validator')
 
 const app = express()
 const PORT = process.env.PORT || 8080
-
 
 const pool = new Pool({
   user: process.env.DB_USER,
@@ -48,7 +47,6 @@ QodqdTKhsPxoviGsXAEYIg/eKohYSLgGU73bGEzgMbXUl9D28A==
   },
 })
 
-
 app.set('trust proxy', 1)
 
 app.use(helmet())
@@ -63,6 +61,7 @@ app.use(
     cookie: {
       secure: process.env.NODE_ENV === 'production',
       sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+      httpOnly: true,
     },
   })
 )
@@ -81,7 +80,7 @@ app.use(cors(corsOptions))
 const callbackURL =
   process.env.NODE_ENV === 'production'
     ? `${process.env.BACKEND_URL}/auth`
-    : 'http://localhost:8080/auth'
+    : 'https://codeverse-lms.onrender.com/auth'
 
 app.get('/', (req, res) => {
   res.send('Welcome to the LMS API')
@@ -177,8 +176,10 @@ app.post(
   }
 )
 
-
 app.get('/checkAuth', (req, res) => {
+  console.log('Session:', req.session)
+  console.log('User:', req.user)
+  console.log('Is Authenticated:', req.isAuthenticated())
   if (req.isAuthenticated()) {
     res.sendStatus(200)
   } else {

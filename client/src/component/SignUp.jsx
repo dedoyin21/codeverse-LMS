@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import NavBar from "./NavBar";
+import NavBar from './NavBar'
 import codeverseLogo from '../../src/assets/codeverseLogo.svg'
 import { GithubIcon, MailIcon } from 'lucide-react'
-
 
 function Signup() {
   const [name, setName] = useState('')
@@ -14,21 +13,24 @@ function Signup() {
   const handleSignUp = async (event) => {
     event.preventDefault()
     try {
-      const response = await fetch('https://codeverse-lms.onrender.com/auth/local/signup', {
-        method: 'POST',
-        credentials: 'include',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          password,
-        }),
-      })
+      const response = await fetch(
+        'https://codeverse-lms.onrender.com/auth/local/signup',
+        {
+          method: 'POST',
+          credentials: 'include',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            password,
+          }),
+        }
+      )
 
       if (response.ok) {
-        navigate('/dashboard')
+        navigate('http://localhost:5173/dashboard')
       } else {
         const errorData = await response.json()
         console.error(errorData)
@@ -148,7 +150,6 @@ function Signup() {
         </p>
       </div>
     </div>
-
   )
 }
 
