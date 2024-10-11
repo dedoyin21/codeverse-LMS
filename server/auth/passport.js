@@ -58,6 +58,7 @@ passport.use(
               name: profile.displayName,
               google_id: profile.id,
               role: 'user', 
+              password: null,     //No Password is required for OAuth
             })
           }
         }

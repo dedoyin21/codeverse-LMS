@@ -63,6 +63,7 @@ app.use(
     cookie: {
       secure: process.env.NODE_ENV === 'production',
       sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+      httpOnly: true,
     },
   })
 )
@@ -77,6 +78,7 @@ const corsOptions = {
 }
 
 app.use(cors(corsOptions))
+
 
 const callbackURL =
   process.env.NODE_ENV === 'production'
@@ -177,8 +179,10 @@ app.post(
   }
 )
 
-
 app.get('/checkAuth', (req, res) => {
+  console.log('Session:', req.session)
+  console.log('User:', req.user)
+  console.log('Is Authenticated:', req.isAuthenticated())
   if (req.isAuthenticated()) {
     res.sendStatus(200)
   } else {

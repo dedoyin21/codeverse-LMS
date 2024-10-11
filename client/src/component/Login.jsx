@@ -14,7 +14,7 @@ const Login = () => {
     e.preventDefault()
     try {
       const response = await axios.post(
-        'https://codeverse-lms.onrender.com/local/signin',
+        'http://localhost:8080/auth/local/signin',
         { emailOrUsername, password },
         { withCredentials: true }
       )
@@ -34,7 +34,7 @@ const Login = () => {
   }
 
   const handleOAuthLogin = (provider) => {
-    window.location.href = `https://codeverse-lms.onrender.com/auth/${provider}`
+    window.location.href = `http://localhost:8080/auth/${provider}`
   }
 
   return (

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Navigate } from 'react-router-dom'
 
 function ProtectedRoute({ children }) {
-  const [isAuthenticated, setIsAuthenticated] = useState(null) 
+  const [isAuthenticated, setIsAuthenticated] = useState(null)
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -10,12 +10,9 @@ function ProtectedRoute({ children }) {
         const response = await fetch('http://localhost:8080/checkAuth', {
           credentials: 'include',
         })
-        if (response.ok) {
-          setIsAuthenticated(true)
-        } else {
-          setIsAuthenticated(false)
-        }
+        setIsAuthenticated(response.ok)
       } catch (error) {
+        console.error('Auth check failed:', error)
         setIsAuthenticated(false)
       }
     }
@@ -24,7 +21,7 @@ function ProtectedRoute({ children }) {
   }, [])
 
   if (isAuthenticated === null) {
-    return <div>Loading...</div> 
+    return <div>Loading...</div>
   }
 
   return isAuthenticated ? children : <Navigate to="/sign-in" />

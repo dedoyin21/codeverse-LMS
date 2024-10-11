@@ -14,7 +14,7 @@ function Signup() {
   const handleSignUp = async (event) => {
     event.preventDefault()
     try {
-      const response = await fetch('https://codeverse-lms.onrender.com/auth/local/signup', {
+      const response = await fetch('http://localhost:8080/auth/local/signup', {
         method: 'POST',
         credentials: 'include',
         headers: {
@@ -28,7 +28,7 @@ function Signup() {
       })
 
       if (response.ok) {
-        navigate('/dashboard')
+        navigate('http://localhost:5173/dashboard')
       } else {
         const errorData = await response.json()
         console.error(errorData)
@@ -39,7 +39,7 @@ function Signup() {
   }
 
   const handleOAuthSignUp = (provider) => {
-    window.location.href = `https://codeverse-lms.onrender.com/auth/${provider}`
+    window.location.href = `http://localhost:8080/auth/${provider}`
   }
 
   return (
