@@ -122,9 +122,19 @@ function Signup() {
           </div>
         </form>
 
+        <p className="text-center text-black">
+          Already have an account?{' '}
+          <a
+            className="text-custom-red hover:text-custom-purple hover:underline"
+            href="/sign-in"
+          >
+            Login here
+          </a>
+        </p>
+
         <div className="flex items-center">
           <hr className="flex-grow border-t border-gray-400" />
-          <span className="px-3 text-gray-500">or</span>
+          <span className="px-3 text-gray-500">OR</span>
           <hr className="flex-grow border-t border-gray-400" />
         </div>
 
@@ -145,15 +155,7 @@ function Signup() {
           </button>
         </div>
 
-        <p className="text-center text-black">
-          Already have an account?{' '}
-          <a
-            className="text-custom-red hover:text-custom-purple hover:underline"
-            href="/sign-in"
-          >
-            Login here
-          </a>
-        </p>
+        
       </div>
     </div>
   )

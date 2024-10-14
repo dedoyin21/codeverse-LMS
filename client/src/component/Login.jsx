@@ -94,9 +94,19 @@ const Login = () => {
             </button>
           </form>
 
+          <p className="text-center text-black">
+            Don't have an account yet?{' '}
+            <Link
+              to="/sign-up"
+              className="text-custom-red hover:text-custom-purple hover:underline"
+            >
+              Sign Up
+            </Link>
+          </p>
+
           <div className="flex items-center">
             <hr className="flex-grow border-t border-gray-400" />
-            <span className="px-3 text-gray-500">or</span>
+            <span className="px-3 text-gray-500">OR</span>
             <hr className="flex-grow border-t border-gray-400" />
           </div>
 
@@ -117,15 +127,7 @@ const Login = () => {
             </button>
           </div>
 
-          <p className="text-center text-black">
-            Don't have an account yet?{' '}
-            <Link
-              to="/sign-up"
-              className="text-custom-red hover:text-custom-purple hover:underline"
-            >
-              Sign Up
-            </Link>
-          </p>
+         
         </div>
       </div>
     </>

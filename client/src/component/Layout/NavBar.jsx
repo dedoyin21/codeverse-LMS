@@ -7,7 +7,7 @@ function NavBar() {
   const [navbar, setNavbar] = useState(false)
   return (
     <div>
-      <nav className="w-full bg-custom-white fixed top-0 left-0 pt-4  right-0 z-20">
+      <nav className="w-full bg-custom-cream fixed top-0 left-0 pt-4  right-0 z-20">
         <div className="justify-between max-w-full px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:gap-40 md:px-2 md:mx-2">
           <div>
             <div className="flex items-center justify-between py-3 md:py-5 md:block">
@@ -117,8 +117,8 @@ function NavBar() {
                   </li>
                 </ul>
 
-                <div className="flex justify-center">
-                  <hr className='bg-custom-purple w-[2px] h-5 mt-8' />
+                <div className="flex flex-col md:flex-row justify-center">
+                  <hr className='hidden md:flex bg-custom-purple w-[2px] h-5 mt-8' />
                   <Link to="/sign-in">
                     <p className="text-custom-purple font-semibold text-xl px-2 md:ml-8  md:mt-6  hover:text-custom-red">
                       Login
