@@ -8,7 +8,7 @@ function Dashboard() {
   return (
     <ThemeContextProvider>
       {/* Wrapper with flex-col layout to place Navbar at the top */}
-      <div className="flex flex-col min-h-screen">
+      <div className="flex flex-col min-h-screen dark:to-dark-gray">
         <Navbar />
         <div className="flex flex-grow">
           <Sidebar>
