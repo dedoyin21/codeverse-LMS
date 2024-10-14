@@ -2,7 +2,7 @@ import '../../index.css';
 import Navbar from '../header';
 import ThemeContextProvider from '../../Context/ThemeContextProvider';
 import { FaHome, FaTachometerAlt, FaStickyNote, FaLayerGroup, FaFlag, FaCalendar, FaLifeRing, FaCog } from "react-icons/fa";
-import Sidebar, { SidebarItem } from "../Sidebar";
+import Sidebar, { SidebarItem } from "./Sidebar";
 import { Link } from 'react-router-dom';
 
 
