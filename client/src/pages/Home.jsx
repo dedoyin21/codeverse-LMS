@@ -2,6 +2,9 @@ import { useState } from 'react'
 import NavBar from '../component/NavBar'
 import Hero from '../component/Hero'
 import Courses from '../component/Courses'
+import Footer from '../component/Footer'
+import Admission from '../component/Admission'
+import OurSchool from '../component/OurSchool'
 
 
 function Home() {
@@ -10,7 +13,10 @@ function Home() {
     <>
       <NavBar />
       <Hero />
+      <OurSchool />
       <Courses />
+      <Admission />
+      < Footer />
     </>
   )
 }

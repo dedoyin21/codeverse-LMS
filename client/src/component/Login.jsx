@@ -38,15 +38,17 @@ const Login = () => {
   }
 
   return (
-    <div className="min-h-screen bg-custom-cream">
-      <NavBar />
+    <>
+      
       <div className="flex justify-center items-center  bg-custom-cream mt-10 md:mt-36">
         <div className="bg-yellow-50 flex flex-col gap-8 p-8 rounded-lg shadow-lg w-[1000px] max-w-md">
           <div className="flex flex-col gap-1 justify-center items-center">
             <h2 className="text-2xl font-sans font-bold mb-6 text-center text-black">
               Login
             </h2>
-            <img src={codeverseLogo} width={60} height={28} alt="logo" />
+            <a href="/">
+              <img src={codeverseLogo} width={150} height={150} alt="logo" />
+            </a>
           </div>
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-6">
@@ -126,7 +128,7 @@ const Login = () => {
           </p>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

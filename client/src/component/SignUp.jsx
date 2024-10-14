@@ -50,6 +50,12 @@ function Signup() {
         <h2 className="text-2xl font-sans font-bold mb-6 text-center text-black">
           Sign Up
         </h2>
+        <div className='flex justify-center item-center'>
+          <a href="/">
+            <img src={codeverseLogo} width={150} height={150} alt="logo" />
+          </a>
+        </div>
+        
 
         <form className="space-y-6" onSubmit={handleSignUp}>
           <div className="grid w-full items-center gap-1.5">

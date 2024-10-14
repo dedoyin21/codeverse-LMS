@@ -40,3 +40,20 @@ body {
   }
 }
 
+/* Add this CSS to your styles */
+.perspective {
+  perspective: 1000px; /* Adjust the perspective as needed */
+}
+
+.backface-hidden {
+  backface-visibility: hidden; /* Ensures the back of the card is hidden when facing the viewer */
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg); /* Rotates the card on hover */
+}
+
+/* Optional: Hover effect for the card */
+.card:hover .rotate-y-180 {
+  transform: rotateY(0); /* Reset on hover */
+}
