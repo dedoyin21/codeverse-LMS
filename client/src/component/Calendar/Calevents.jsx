@@ -15,7 +15,7 @@ const CalendarComponent = () => (
       events={events}
       step={60}
       views={allViews}
-      defaultDate={new Date(2015, 3, 1)}
+      defaultDate={new Date(2024, 9, 1)}
       popup={false}
       onShowMore={(events, date) => this.setState({ showModal: true, events })}
     />
