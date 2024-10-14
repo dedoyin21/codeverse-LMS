@@ -10,6 +10,8 @@ import Dashboard from './pages/Dashboard'
 import SignUp from './pages/SignUp'
 import SignIn from './pages/SignIn'
 import ProtectedRoute from './ProtectedRoute'
+import Calendar from './pages/Calendar'
+
 
 function App() {
   return (
@@ -26,7 +28,8 @@ function App() {
             }
           />
           <Route path="/sign-up" element={<SignUp />} />
-          <Route path="/sign-in" element={<SignIn />} />          
+          <Route path="/sign-in" element={<SignIn />} />    
+          <Route path='/calendar' element={<Calendar />} />   
         </Routes>
       </>
     </div>

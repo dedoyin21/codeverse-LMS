@@ -25,8 +25,9 @@ function Dashboard() {
           </Sidebar>
           
           {/* Main content area */}
-          <div className="flex-grow p-4">
-          <HorizontalCard />
+          <div className="flex-grow p-4 dark:bg-dark-gray">
+            <h1 className='font-bold text-5xl text-custom-red dark:text-white mb-8'>My Courses</h1>
+            <HorizontalCard />
           </div>  
         </div>
       </div>
