@@ -4,7 +4,7 @@ const Admission = () => {
   return (
     <div className='bg-white md:px-48 md:py-20'>
       <h1 className='text-custom-blue ml-8 py-10 md:ml-14 md:mb-5 font-cabinetGrotesk text-2xl md:text-4xl font-bold'>
-        Admission Requirement
+        Enrolment Requirement
       </h1>
       <div className='bg-black flex flex-col justify-center text-white gap-2 p-7 md:gap-4 md:py-10 md:pl-20 md:pr-6'>
         <div>
