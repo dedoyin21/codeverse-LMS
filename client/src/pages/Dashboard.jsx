@@ -3,6 +3,7 @@ import Navbar from '../component/header';
 import ThemeContextProvider from '../Context/ThemeContextProvider';
 import { FaHome, FaTachometerAlt, FaStickyNote, FaLayerGroup, FaFlag, FaCalendar, FaLifeRing, FaCog } from "react-icons/fa";
 import Sidebar, { SidebarItem } from "../component/Sidebar";
+import { HorizontalCard } from '../component/CardCourses/Card'
 
 function Dashboard() {
   return (
@@ -25,7 +26,7 @@ function Dashboard() {
           
           {/* Main content area */}
           <div className="flex-grow p-4">
-            {/* Your main content here */}
+          <HorizontalCard />
           </div>  
         </div>
       </div>

@@ -1,0 +1,8 @@
+[
+    {
+        "title": "Learn React: Introduction to React for Beginners",
+        "category": "react",
+        "description": "React is a powerful JavaScript library for building user interfaces. This article introduces the fundamentals, covering the core concepts like components, state, and props.",
+        "image": "/react.jpg"
+    }
+]
