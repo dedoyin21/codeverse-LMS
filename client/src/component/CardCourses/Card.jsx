@@ -7,7 +7,7 @@ export function HorizontalCard() {
     return (
       <>
         {cardData.map((data, index) => (
-          <Card key={index} className="w-full max-w-[65rem] flex-row">
+          <Card key={index} className="w-full max-w-[65rem] h-64 flex-row">
             <CardHeader shadow={false} floated={false} className="m-0 w-2/5 shrink-0 rounded-r-none">
               <img src={data.image} alt="card-image" className="h-full w-full object-cover" />
             </CardHeader>
