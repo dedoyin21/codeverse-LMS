@@ -54,37 +54,37 @@ export default [
     {
       'title': 'Happy Hour',
       'start': new Date(2024, 3, 12, 17, 0, 0, 0),
-      'end': new Date(2015, 3, 12, 17, 30, 0, 0),
+      'end': new Date(2024, 3, 12, 17, 30, 0, 0),
       desc: 'Most important meal of the day'
     },
     {
       'title': 'Dinner',
-      'start': new Date(2015, 3, 12, 20, 0, 0, 0),
-      'end': new Date(2015, 3, 12, 21, 0, 0, 0)
+      'start': new Date(2024, 3, 12, 20, 0, 0, 0),
+      'end': new Date(2024, 3, 12, 21, 0, 0, 0)
     },
     {
       'title': 'Birthday Party',
-      'start': new Date(2015, 3, 13, 7, 0, 0),
-      'end': new Date(2015, 3, 13, 10, 30, 0)
+      'start': new Date(2024, 3, 13, 7, 0, 0),
+      'end': new Date(2024, 3, 13, 10, 30, 0)
     },
     {
       'title': 'Birthday Party 2',
-      'start': new Date(2015, 3, 13, 7, 0, 0),
-      'end': new Date(2015, 3, 13, 10, 30, 0)
+      'start': new Date(2024, 3, 13, 7, 0, 0),
+      'end': new Date(2024, 3, 13, 10, 30, 0)
     },
     {
       'title': 'Birthday Party 3',
-      'start': new Date(2015, 3, 13, 7, 0, 0),
-      'end': new Date(2015, 3, 13, 10, 30, 0)
+      'start': new Date(2024, 3, 13, 7, 0, 0),
+      'end': new Date(2024, 3, 13, 10, 30, 0)
     },
     {
       'title': 'Late Night Event',
-      'start': new Date(2015, 3, 17, 19, 30, 0),
-      'end': new Date(2015, 3, 18, 2, 0, 0)
+      'start': new Date(2024, 3, 17, 19, 30, 0),
+      'end': new Date(2024, 3, 18, 2, 0, 0)
     },
     {
       'title': 'Multi-day Event',
       'start': new Date(2024, 3, 20, 19, 30, 0),
-      'end': new Date(2015, 3, 22, 2, 0, 0)
+      'end': new Date(2024, 3, 22, 2, 0, 0)
     }
   ]

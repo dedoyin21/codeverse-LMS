@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
 import { FaMoon, FaSun } from 'react-icons/fa'
-import { ThemeCotext } from '../Context/ThemeContextProvider'
-import codeverseLogo from '../../src/assets/codeverseLogo.svg'
-import AccountDemoSignedIn from "../component/Account"
-import SearchBar from "../component/UI/Search"
+import { ThemeCotext } from '../../Context/ThemeContextProvider'
+import codeverseLogo from "../../assets/codeverseLogo.svg"
+import AccountDemoSignedIn from "../Account"
+import SearchBar from "../UI/Search"
 
-const Navbar = () => {
+const NavbarPage = () => {
     const {theme, toggleTheme} = useContext(ThemeCotext)
   return (
     <div className='bg-custom-white dark:bg-dark-gray text-gray-900 border-b border-gray-300 p-4 flex justify-between items-center dark:border-gray-600 dark:text-dark-text'>
@@ -23,10 +23,7 @@ const Navbar = () => {
             </button>
           </div>
         </div>
-        
-       
-    
   )
 }
 
-export default Navbar
+export default NavbarPage

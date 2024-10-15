@@ -1,5 +1,5 @@
 import '../../index.css';
-import Navbar from '../header';
+import Navbar from './header';
 import ThemeContextProvider from '../../Context/ThemeContextProvider';
 import { FaHome, FaTachometerAlt, FaStickyNote, FaLayerGroup, FaFlag, FaCalendar, FaLifeRing, FaCog } from "react-icons/fa";
 import Sidebar, { SidebarItem } from "./Sidebar";
@@ -22,6 +22,10 @@ function Layout({ children }) {
                   <SidebarItem icon={<FaTachometerAlt size={20} />} text="Dashboard" active />
               </Link>
   
+              <Link to="/">
+                  <SidebarItem icon={<FaTachometerAlt size={20} />} text="Courses"/>
+              </Link>
+
               <Link to="/projects">
                   <SidebarItem icon={<FaStickyNote size={20} />} text="Projects" alert />
               </Link>

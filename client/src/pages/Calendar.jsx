@@ -5,7 +5,7 @@ import CalendarComponent from '../component/Calendar/Calevents';
 function CalendarPage() {
   return (
     <Layout>
-        <h1 className='font-bold text-5xl text-custom-red dark:text-white mb-8'>My Courses</h1>
+        <h1 className='font-bold text-5xl text-custom-red dark:text-white mb-8'>My Calendar</h1>
         <CalendarComponent />
     </Layout>
   );

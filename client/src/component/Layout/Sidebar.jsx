@@ -1,4 +1,4 @@
-import { FaAngleDoubleLeft, FaAngleDoubleRight, FaEllipsisV } from "react-icons/fa";
+import { FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
 import { createContext, useContext, useState } from "react";
 
 const SidebarContext = createContext();
@@ -6,19 +6,16 @@ const SidebarContext = createContext();
 export default function Sidebar({ children }) {
     const [expanded, setExpanded] = useState(true);
     return (
-        <aside className="h-screen">
-            <div className="h-full flex flex-col bg-custom-red border-r shadow-sm dark:bg-dark-gray">
-                <div className="p-4 pb-2 flex justify-end items-center">
-                    <button onClick={() => setExpanded((curr) => !curr)} className="p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100">
-                        {expanded ? <FaAngleDoubleLeft /> : <FaAngleDoubleRight />}
-                    </button>
-                </div>
-
-                <SidebarContext.Provider value={{ expanded }}>
-                    <ul className="flex-1 px-3">{children}</ul>
-                </SidebarContext.Provider>
-
+        <aside className={`md:relative md:flex md:flex-col bg-custom-red border-r shadow-sm dark:bg-dark-gray ${expanded ? 'absolute' : 'hidden'} md:block h-screen z-20`}>
+            <div className="p-4 pb-2 flex justify-end items-center">
+                <button onClick={() => setExpanded((curr) => !curr)} className="p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100">
+                    {expanded ? <FaAngleDoubleLeft /> : <FaAngleDoubleRight />}
+                </button>
             </div>
+
+            <SidebarContext.Provider value={{ expanded }}>
+                <ul className="flex-1 px-3">{children}</ul>
+            </SidebarContext.Provider>
         </aside>
     );
 }
@@ -38,5 +35,3 @@ export function SidebarItem({ icon, text, active, alert }) {
         </li>
     );
 }
-
-
