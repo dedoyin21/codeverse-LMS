@@ -7,12 +7,13 @@ const notyIconStyle = {
 const notyNumStyle = {
   position: "absolute",
   right: "0",
-  backgroundColor: "rgb(29, 161, 242)",
+  backgroundColor: "#A74747",
   fontSize: "11px",
   color: "white",
   display: "inline",
-  padding: "3px 5px",
-  borderRadius: "20px"
+  padding: "2px 4px",
+  borderRadius: "20px",
+  className:"dark:bg-white"
 };
 export default function Noty({ width, color, count }) {
   return (
@@ -22,7 +23,7 @@ export default function Noty({ width, color, count }) {
 
         <svg
           viewBox="0 0 24 24"
-          className="r-hkyrab r-4qtqp9 r-yyyyoo r-lwhw9o r-dnmrzs r-bnwqim r-1plcrui r-lrvibr"
+          className=""
           width={width}
           fill={color}
         >

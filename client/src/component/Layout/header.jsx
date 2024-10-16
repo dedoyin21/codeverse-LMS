@@ -4,6 +4,7 @@ import { ThemeCotext } from '../../Context/ThemeContextProvider'
 import codeverseLogo from "../../assets/codeverseLogo.svg"
 import AccountDemoSignedIn from "../Account"
 import SearchBar from "../UI/Search"
+import Noty from '../UI/Noty'
 
 const NavbarPage = () => {
     const {theme, toggleTheme} = useContext(ThemeCotext)
@@ -15,7 +16,7 @@ const NavbarPage = () => {
             <div className='mr-24' >
               <SearchBar />
             </div>
-            
+            <Noty width={"40px"} color={"black"} count={10} />
             <AccountDemoSignedIn />
 
             <button className='text-2xl text-dark' onClick={toggleTheme}>
