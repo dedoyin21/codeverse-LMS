@@ -13,9 +13,9 @@ const NavbarPage = () => {
         <img src={codeverseLogo} className={`overflow-hidden transition-all`} alt="Logo" />
         
           <div className="flex gap-4">
-            <div className='mr-24' >
+            {/* <div className='mr-24' >
               <SearchBar />
-            </div>
+            </div> */}
             <Noty width={"40px"} color={"black"} count={10} />
             <AccountDemoSignedIn />
 

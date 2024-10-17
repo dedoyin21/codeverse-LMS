@@ -1,6 +1,5 @@
 import React from "react";
 import { Card, CardHeader, CardBody, Typography, Button } from "@material-tailwind/react";
-// Import your JSON data
 import cardData from "../../data.json";
 
 export function HorizontalCard() {
@@ -31,6 +30,7 @@ export function HorizontalCard() {
               </a>
             </CardBody>
           </Card>
+
         ))}
       </>
     );
