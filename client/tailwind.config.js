@@ -12,7 +12,7 @@ export default {
         'custom-yellow': '#FFD400',
         'custom-cream': '#F6F0E3',
         'custom-purple': '#541388',
-        'dark-gray': '#2E3440',
+        'dark-gray': '#111827',
         'dark-text' : '#ECEFF4',
         'alert' : '#3f0bdb'
       },
