@@ -11,7 +11,7 @@ const courses = [
 
 const OurSchool = () => {
   return (
-    <div className="bg-custom-blue flex flex-wrap justify-center gap-6 mt-10 py-10">
+    <div className="bg-custom-cream flex flex-wrap justify-center gap-6 pt-10 py-10">
       {courses.map((course, index) => (
         <div key={index} className="relative w-64 h-64 cursor-pointer">
           <a href={course.link} className="block w-full h-full">
@@ -19,9 +19,9 @@ const OurSchool = () => {
               <img
                 src={course.image}
                 alt={course.title}
-                className="w-full h-full object-cover rounded-lg"
+                className="w-full h-full object-cover rounded-lg transform transition-transform duration-300 hover:scale-110"
               />
-              <h2 className="text-xl font-semibold text-custom-yellow text-center mt-2">
+              <h2 className="text-xl font-semibold text-custom-red text-center mt-2">
                 {course.title}
               </h2>
             </div>

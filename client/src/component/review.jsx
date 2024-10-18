@@ -4,13 +4,13 @@ const reviews = [
   {
     name: "John Doe",
     title: "Frontend Developer",
-    image: "/student1.jpg",
+    image: "/student1.png",
     review: "This course was life-changing. I learned so much about frontend development and built real projects. I can't recommend it enough!"
   },
   {
     name: "Jane Smith",
     title: "Backend Engineer",
-    image: "/student2.jpg",
+    image: "/student.png",
     review: "The backend course was well-structured, and the instructors were incredibly knowledgeable. The hands-on practice was invaluable."
   },
   {
@@ -45,9 +45,9 @@ function ReviewSlider() {
   }, []);
 
   return (
-    <div className="w-full bg-custom-cream py-8">
+    <div className="w-full bg-custom-red py-8">
       <div className="max-w-4xl mx-auto flex flex-col items-center">
-        <h2 className="text-4xl text-custom-red font-bold mb-8">Student Reviews</h2>
+        <h2 className="text-4xl text-custom-cream font-bold mb-8">Student Reviews</h2>
 
         <div className="relative w-full md:w-3/4">
           <div className="flex items-center justify-between">

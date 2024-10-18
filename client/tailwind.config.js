@@ -16,9 +16,21 @@ export default {
         'dark-text' : '#ECEFF4',
         'alert' : '#3f0bdb'
       },
+      fontFamily: {
+        sans: ['IBM Plex Sans', 'sans-serif'],
+        cabinetGrotesk: ['Cabinet Grotesk', 'sans-serif'],
+      },
+      fontWeight: {
+        light: '300',
+        normal: '400',
+        semibold: '600',
+        bold: '700',
+      },
+     
+     
     },
-  },
   plugins: [],
   darkMode: 'class',
 }
 
+}
