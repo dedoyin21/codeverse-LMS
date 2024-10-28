@@ -5,7 +5,6 @@ import { FaHome, FaTachometerAlt, FaStickyNote, FaLayerGroup, FaFlag, FaCalendar
 import Sidebar, { SidebarItem } from "./Sidebar";
 import { Link } from 'react-router-dom';
 
-
 function Layout({ children }) {
     return (
       <ThemeContextProvider>
@@ -13,37 +12,40 @@ function Layout({ children }) {
         <div className="flex flex-col min-h-screen dark:to-dark-gray">
           <Navbar />
           <div className="flex flex-grow">
-            <Sidebar>
-              <Link to="/">
-                  <SidebarItem icon={<FaHome size={20} />} text="Home" alert />
-              </Link>
-  
-              <Link to="/dashboard">
-                  <SidebarItem icon={<FaTachometerAlt size={20} />} text="Dashboard" active />
-              </Link>
-  
-              <Link to="/">
-                  <SidebarItem icon={<FaTachometerAlt size={20} />} text="Courses"/>
-              </Link>
+            {/* Sidebar - hidden on mobile screens */}
+            <div className="hidden sm:block">
+              <Sidebar>
+                <Link to="/">
+                    <SidebarItem icon={<FaHome size={20} />} text="Home" alert />
+                </Link>
 
-              <Link to="/projects">
-                  <SidebarItem icon={<FaStickyNote size={20} />} text="Projects" alert />
-              </Link>
-  
-              <Link to="/calendar">
-                  <SidebarItem icon={<FaCalendar size={20} />} text="Calendar" />
-              </Link>
-  
-              <Link to="/tasks">
-                  <SidebarItem icon={<FaLayerGroup size={20} />} text="Tasks" />
-              </Link>
-              <hr className="my-3" />
-  
-              <Link to="/settings">
-                  <SidebarItem icon={<FaCog size={20} />} text="Settings" />
-              </Link>
-            </Sidebar>
-            
+                <Link to="/dashboard">
+                    <SidebarItem icon={<FaTachometerAlt size={20} />} text="Dashboard" active />
+                </Link>
+
+                <Link to="/">
+                    <SidebarItem icon={<FaTachometerAlt size={20} />} text="Courses"/>
+                </Link>
+
+                <Link to="/projects">
+                    <SidebarItem icon={<FaStickyNote size={20} />} text="Projects" alert />
+                </Link>
+
+                <Link to="/calendar">
+                    <SidebarItem icon={<FaCalendar size={20} />} text="Calendar" />
+                </Link>
+
+                <Link to="/tasks">
+                    <SidebarItem icon={<FaLayerGroup size={20} />} text="Tasks" />
+                </Link>
+                <hr className="my-3" />
+
+                <Link to="/settings">
+                    <SidebarItem icon={<FaCog size={20} />} text="Settings" />
+                </Link>
+              </Sidebar>
+            </div>
+
             <main className="flex-grow p-4 dark:bg-dark-gray">
               {children}
             </main>
@@ -51,8 +53,6 @@ function Layout({ children }) {
         </div>
       </ThemeContextProvider>
     );
-  }
-  
-  export default Layout;
-  
+}
 
+export default Layout;
