@@ -12,7 +12,7 @@ const MobileSidebar = ({ isOpen, onClose }) => {
       <div className="fixed inset-0 bg-black bg-opacity-50" onClick={onClose} />
 
       {/* Sidebar */}
-      <div className="relative w-64 bg-white dark:bg-dark-gray p-6">
+      <div className="relative w-64 bg-custom-white dark:bg-dark-gray p-6">
         {/* Close Button */}
         <button className="absolute top-4 right-4 text-2xl" onClick={onClose}>
           <FaTimes />
