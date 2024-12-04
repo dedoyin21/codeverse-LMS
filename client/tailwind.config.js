@@ -14,7 +14,8 @@ export default {
         'custom-purple': '#541388',
         'dark-gray': '#111827',
         'dark-text' : '#ECEFF4',
-        'alert' : '#3f0bdb'
+        'alert' : '#3f0bdb',
+        'custom-white' : '#F8F8F8',
       },
       fontFamily: {
         sans: ['IBM Plex Sans', 'sans-serif'],
@@ -30,6 +31,11 @@ export default {
      
     },
   plugins: [],
+  variants: {
+    extend: {
+      display: ["focus-group"]
+    }
+  },
   darkMode: 'class',
 }
 

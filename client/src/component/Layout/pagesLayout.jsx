@@ -1,58 +1,63 @@
+/* import React, { useState } from 'react';
 import '../../index.css';
 import Navbar from './header';
+import Sidebar from '../UI/sidenew';
 import ThemeContextProvider from '../../Context/ThemeContextProvider';
-import { FaHome, FaTachometerAlt, FaStickyNote, FaLayerGroup, FaFlag, FaCalendar, FaLifeRing, FaCog } from "react-icons/fa";
-import Sidebar, { SidebarItem } from "./Sidebar";
-import { Link } from 'react-router-dom';
+import Topbar from '../UI/mainDash';
 
 function Layout({ children }) {
-    return (
-      <ThemeContextProvider>
-        {/* Wrapper with flex-col layout to place Navbar at the top */}
-        <div className="flex flex-col min-h-screen dark:to-dark-gray">
-          <Navbar />
-          <div className="flex flex-grow">
-            {/* Sidebar - hidden on mobile screens */}
-            <div className="hidden sm:block">
-              <Sidebar>
-                <Link to="/">
-                    <SidebarItem icon={<FaHome size={20} />} text="Home" alert />
-                </Link>
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isActive, setIsActive] = useState(false); // Add active state
 
-                <Link to="/dashboard">
-                    <SidebarItem icon={<FaTachometerAlt size={20} />} text="Dashboard" active />
-                </Link>
+  // Toggle sidebar collapsed state
+  const toggleSidebar = () => {
+    setIsCollapsed(!isCollapsed);
+    setIsActive(!isActive); // Toggle active state
+  };
 
-                <Link to="/">
-                    <SidebarItem icon={<FaTachometerAlt size={20} />} text="Courses"/>
-                </Link>
-
-                <Link to="/projects">
-                    <SidebarItem icon={<FaStickyNote size={20} />} text="Projects" alert />
-                </Link>
-
-                <Link to="/calendar">
-                    <SidebarItem icon={<FaCalendar size={20} />} text="Calendar" />
-                </Link>
-
-                <Link to="/tasks">
-                    <SidebarItem icon={<FaLayerGroup size={20} />} text="Tasks" />
-                </Link>
-                <hr className="my-3" />
-
-                <Link to="/settings">
-                    <SidebarItem icon={<FaCog size={20} />} text="Settings" />
-                </Link>
-              </Sidebar>
-            </div>
-
-            <main className="flex-grow p-4 dark:bg-dark-gray">
-              {children}
-            </main>
-          </div>
+  return (
+    <ThemeContextProvider>
+      <div className={`flex min-h-screen ${isActive ? 'sidebar-active' : ''} bg-custom-white dark:bg-dark-gray`}>
+        
+        <div className={`${isCollapsed ? 'w-20' : 'w-64'} transition-width duration-500`}>
+          <Sidebar isCollapsed={isCollapsed} isActive={isActive} toggleSidebar={toggleSidebar} />
         </div>
-      </ThemeContextProvider>
-    );
+
+        {/* Main content area with Navbar and children 
+        <div className="flex flex-col flex-grow">
+          {/* Pass toggleSidebar to Topbar for triggering 
+          <Topbar toggleSidebar={toggleSidebar} />
+
+          <main className="flex-grow p-4 dark:bg-dark-gray">
+            {children}
+          </main>
+        </div>
+      </div>
+    </ThemeContextProvider>
+  );
 }
 
 export default Layout;
+ */
+
+import '../../index.css';
+import React, { useState } from 'react'
+import Sidebar from '../Layout/Sidebar'
+import Dashboard from '../Layout/dashboard'
+
+function pagesLayout() {
+  const [sidebarToggle, setSidebarToggle] = useState(false)
+  return (
+    <div className='flex'>
+      <Sidebar sidebarToggle={sidebarToggle} />
+      <Dashboard 
+      sidebarToggle={sidebarToggle}
+      setSidebarToggle={setSidebarToggle}/>
+      
+    </div>
+  )
+}
+
+export default pagesLayout
+
+

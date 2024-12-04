@@ -1,10 +1,47 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #F6F0E3;
+    background-color: #F6F0E3;
+  }
+  a:hover {
+    color:#A74747;
+  }
+  button {
+    background-color: #F6F0E3;
+  }
+}
+
+/* Add this to your CSS file */
+.calendar-container {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .calendar-container {
+    height: 500px; /* Adjust height for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .calendar-container {
+    height: 400px; /* Further adjust for very small screens */
+  }
+}
 
 
 
