@@ -82,14 +82,14 @@ export default function Courses() {
   };
 
   return (
-    <div className="bg-custom-blue flex flex-col gap-6 md:gap-12 justify-center items-center">
+    <div className="bg-custom-cream flex flex-col gap-6 md:gap-12 justify-center items-center">
       {/* Header Section */}
       <div className="w-full flex flex-row justify-between bg-custom-purple px-2 py-6 md:px-4 md:py-8">
         <h1 className="text-3xl font-cabinetGrotesk font-bold md:text-5xl text-custom-cream">Trending Courses</h1>
       </div>
 
       {/* Courses Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6 text-black">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 p-6 text-black">
         {courses.slice(0, showMore ? courses.length : 6).map((course, index) => (
           <div key={index} className="bg-white shadow-lg rounded-lg overflow-hidden">
             <img src={course.image} alt={course.title} className="w-full h-40 object-cover" />

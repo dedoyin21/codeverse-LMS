@@ -3,12 +3,12 @@ import React from "react";
 function Hero() {
     return (
         <>
-            <div className="w-full h-screen flex flex-col-reverse md:flex-row justify-center items-center text-custom-cream  bg-gradient-to-b from-red-500 to-black">
-                <div className="w-full md:w-1/2 flex flex-col gap-4 mt-4 lg:mt-28 px-4 md:px-10 lg:px-16">
-                    <h1 className="text-center md:text-left text-3xl md:text-4xl lg:text-5xl font-bold font-cabinetGrotesk">
-                        Shape the Future of Tech by Mastering the Skills of Tomorrow
+            <div className="w-full h-screen flex flex-col-reverse md:flex-row justify-center items-center  bg-custom-cream">
+                <div className="w-full md:w-1/2 flex flex-col gap-4 mt-4 lg:mt-20 px-4 md:px-10 lg:px-16">
+                    <h1 className=" text-custom-blue text-center md:text-left text-3xl md:text-4xl lg:text-5xl font-bold font-cabinetGrotesk">
+                        Invest in Knowledge and <span className="text-custom-yellow">Your Future</span>
                     </h1>
-                    <p className="text-sm px-2 md:px-4 font-sans font-normal">
+                    <p className="text-sm px-2 md:px-4 font-sans font-normal text-gray-600">
                         We are revolutionizing the World of Technology; transforming Tech Newbies into Industry Game-Changers, by enhancing their skills to prepare them for the ever-evolving Digital Age.
                     </p>
                     <div className="flex flex-col md:flex-row gap-4 mt-6">
@@ -27,17 +27,17 @@ function Hero() {
                             <img src="/student4.jpg" alt="Student 4" className="w-10 h-10 rounded-full border-2 border-white object-cover" />
                         </div>
                         <div className="flex flex-col items-left">
-                            <p className="text-2xl font-bold">165+</p>
+                            <p className="text-2xl text-custom-red font-bold">165+</p>
                             <p className="text-sm text-gray-500">Enrolled Students</p>
                         </div>
                     </div>
                 </div>
                 
-                <div className="w-full md:w-1/2 flex justify-center mt-10 md:mt-20">
+                <div className="w-full md:w-1/2 flex justify-left mt-10 md:mt-20 ">
                     <img 
-                        src="/Cartoon.svg" 
+                        src="/man.png" 
                         alt="Illustration of tech advancements"
-                        className="w-96 md:w-96 lg:w-full"
+                        className=""
                     />
                 </div>
             </div>

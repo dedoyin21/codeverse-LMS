@@ -11,6 +11,7 @@ import SignUp from './pages/SignUp'
 import SignIn from './pages/SignIn'
 import ProtectedRoute from './ProtectedRoute'
 import CalendarPage from './pages/Calendar'
+import CoursePage from './component/CoursePage/CoursePage'
 
 
 function App() {
@@ -29,7 +30,8 @@ function App() {
           />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/sign-in" element={<SignIn />} />    
-          <Route path="/calendar" element={<CalendarPage />} />   
+          <Route path="/calendar" element={<CalendarPage />} /> 
+          <Route path="/coursepage" element={<CoursePage />} />  
 
         </Routes>
       </>
