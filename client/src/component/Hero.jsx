@@ -1,4 +1,4 @@
-import React from "react";
+
 
 function Hero() {
     return (
@@ -35,7 +35,7 @@ function Hero() {
                 
                 <div className="w-full md:w-1/2 flex justify-left mt-10 md:mt-20 ">
                     <img 
-                        src="/man.png" 
+                        src="/hero-img.png" 
                         alt="Illustration of tech advancements"
                         className=""
                     />

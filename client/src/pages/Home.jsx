@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import NavBar from '../component/NavBar'
 import Hero from '../component/Hero'
 import OurSchool from '../component/OurSchool'
@@ -9,7 +8,6 @@ import ReviewSlider from '../component/review'
 
 
 function Home() {
-  const [count, setCount] = useState(0)
   return (
     <>
       <NavBar />

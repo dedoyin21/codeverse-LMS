@@ -1,6 +1,28 @@
-import React, { useState } from 'react';
-
 export default function Courses() {
+  return(
+
+    <div className="bg-custom-cream  flex flex-col justify-center items-center text-center gap-3 pb-2 md:pb-6">
+      <div className="justify-center items-center">
+        <h1 className="text-2xl font-bold text-black pb-2 md-pb-8">Powerful Features</h1>
+        <p>Special features which help you keep students on track and engaged during class time.</p>
+      </div> 
+      <div className="flex flex-col md:flex-row gap-3 md:gap-5 p-4 md:p-6">
+        <div className="md:w-[500px] mt-4 md:mt-20">
+          <p className="italic font-bold">“Learning happens everywhere, all the time and
+            we are there to ensure that your connected
+            with learning community when it happens.”
+          </p>
+        </div>
+        <div>
+          <img src="/womanlearning.png" alt="" />
+        </div>
+      </div>
+    </div>
+
+  )
+}
+
+/* export default function Courses() {
   const [showMore, setShowMore] = useState(false);
 
   // Combining free and paid courses
@@ -83,12 +105,12 @@ export default function Courses() {
 
   return (
     <div className="bg-custom-cream flex flex-col gap-6 md:gap-12 justify-center items-center">
-      {/* Header Section */}
+      
       <div className="w-full flex flex-row justify-between bg-custom-purple px-2 py-6 md:px-4 md:py-8">
         <h1 className="text-3xl font-cabinetGrotesk font-bold md:text-5xl text-custom-cream">Trending Courses</h1>
       </div>
 
-      {/* Courses Grid */}
+      
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 p-6 text-black">
         {courses.slice(0, showMore ? courses.length : 6).map((course, index) => (
           <div key={index} className="bg-white shadow-lg rounded-lg overflow-hidden">
@@ -97,7 +119,7 @@ export default function Courses() {
               <h3 className="text-xl font-bold mb-2">{course.title}</h3>
               <p className="text-gray-600 mb-4">{course.description}</p>
               <p className="text-black mb-4">Duration: {course.duration}</p>
-              {/* Price Section with distinct styles for Free and Paid Courses */}
+              
               <p
                 className={`text-lg font-semibold  py-1 px-2 rounded-xl ${
                   course.price === 'Free'
@@ -116,14 +138,13 @@ export default function Courses() {
               </p>
 
               <button className="relative group px-4 py-2 hover:px-4 hover:py-2 transition-all duration-300 mt-4">
-                {/* Circle behind the text in the default state */}
+                
                 <div className="absolute inset-0 flex items-center justify-left">
                   <div className="w-12 h-12 bg-custom-red rounded-full group-hover:bg-transparent transition-all duration-300"></div>
                 </div>
-                {/* Button text */}
+                
                 <span className="relative z-10 text-custom-blue group-hover:text-custom-red transition-all duration-300">Enroll Now</span>
   
-                {/* Border appears on hover */}
                 <div className="absolute inset-0 border-2 border-custom-red rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
 
@@ -132,7 +153,7 @@ export default function Courses() {
         ))}
       </div>
 
-      {/* Show More Button */}
+  
       <div className="flex justify-center mt-4 mb-6">
         <button
           onClick={handleShowMore}
@@ -143,4 +164,4 @@ export default function Courses() {
       </div>
     </div>
   );
-}
+} */
