@@ -7,12 +7,16 @@ import SignIn from './pages/SignIn'
 /* import ProtectedRoute from './ProtectedRoute' */
 import CalendarPage from './pages/Calendar'
 import CoursePage from './component/CoursePage/CoursePage'
+import { ThemeProvider } from '../src/Context/ThemeContext'
+import Themelayout from './Layout/Themelayout'
 
 
 function App() {
   return (
     <div className="App">
       <>
+      <ThemeProvider>
+        <Themelayout>
         <Routes>
           <Route path="/" element={<Home />} />
           {/* <Route
@@ -30,6 +34,8 @@ function App() {
           <Route path="/coursepage" element={<CoursePage />} />  
 
         </Routes>
+        </Themelayout>
+        </ThemeProvider>
       </>
     </div>
   )

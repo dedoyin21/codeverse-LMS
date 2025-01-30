@@ -6,8 +6,8 @@ import { GoGraph } from "react-icons/go";
 import { MdOutlineHeadsetMic, MdSpaceDashboard } from "react-icons/md";
 import { TbLayoutSidebarLeftCollapse, TbLayoutSidebarLeftExpand } from "react-icons/tb";
 import { TiCalendar } from "react-icons/ti";
-import logo_icon from '../../assets/logo_icon.svg'
-import codeverseLogo from '../../assets/codeverseLogo.svg'
+import logo_icon from '../assets/logo_icon.svg'
+import codeverseLogo from '../assets/codeverseLogo.svg'
 
 const DashboardLayout = () => {
   const [open, setOpen] = useState(true);
