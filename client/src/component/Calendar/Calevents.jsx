@@ -1,4 +1,3 @@
-import React from "react";
 import { Calendar, momentLocalizer, Views } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
@@ -17,7 +16,7 @@ const CalendarComponent = () => (
       views={allViews}
       defaultDate={new Date(2024, 9, 1)}
       popup={false}
-      onShowMore={(events, date) => this.setState({ showModal: true, events })}
+      onShowMore={(events ) => this.setState({ showModal: true, events })}
       style={{ height: '100%', width: '100%' }} // Ensures it fills the container
     />
   </div>

@@ -1,14 +1,13 @@
 import '../index.css';
-import Layout from '../component/Layout/pagesLayout';
-import UserProfile from "../component/Dashboard/UsrCard"
+import DashboardLayout from '../component/Layout/pagesLayout';
 
 function Dashboard() {
   return (
-      <Layout>
+      <DashboardLayout>
         <div className="flex-grow dark:bg-dark-gray">
-            <UserProfile />
+           
         </div>  
-      </Layout>
+      </DashboardLayout>
   );
 }
 
