@@ -27,7 +27,7 @@ function Hero() {
                             <img src="/student4.jpg" alt="Student 4" className="w-10 h-10 rounded-full border-2 border-white object-cover" />
                         </div>
                         <div className="flex flex-col items-left">
-                            <p className="text-2xl text-custom-red font-bold">165+</p>
+                            <p className="text-2xl text-custom-red font-bold">365+</p>
                             <p className="text-sm text-gray-500">Enrolled Students</p>
                         </div>
                     </div>
@@ -39,6 +39,39 @@ function Hero() {
                         alt="Illustration of tech advancements"
                         className=""
                     />
+                </div>
+            </div>
+            <div className=" bg-custom-cream flex flex-col justify-center items-center text-center gap-3 pb-2 md:pb-6">
+                <div>
+                <h1 className="text-4xl font-bold">The Learning Platform</h1>
+                <p className="text-lg">which helps you to</p>
+                </div>
+                <div className="flex flex-row justify-center items-center gap-10">
+                    
+                <div className="flex flex-col items-center justify-center bg-blue-700 rounded-full w-20 h-20">
+                    <img src="/Engage.png" alt="engage" className="w-8 h-8" />
+                    <p className="text-xs font-medium">Engage</p>
+                </div>
+
+                <div className="flex flex-col items-center justify-center bg-blue-700  rounded-full w-20 h-20">
+                    <img src="/Training.png" alt="train" className="w-8 h-8" />
+                    <p className="text-xs font-medium">Teach</p>
+                </div>
+
+                <div className="flex flex-col items-center justify-center bg-blue-700  rounded-full w-20 h-20">
+                    <img src="/Vector.png" alt="vector" className="w-8 h-8" />
+                    <p className="text-xs font-medium">Access</p>
+                </div>
+
+                <div className="flex flex-col items-center justify-center bg-blue-700  rounded-full w-20 h-20">
+                    <img src="/Increase.png" alt="increase" className="w-8 h-8" />
+                    <p className="text-xs font-medium">Analyse</p>
+                </div>
+
+                <div className="flex flex-col items-center justify-center bg-blue-700  rounded-full w-20 h-20">
+                    <img src="/Laptop Play Video.png" alt="explore" className="w-8 h-8" />
+                    <p className="text-xs font-medium">Explore</p>
+                </div>
                 </div>
             </div>
         </>

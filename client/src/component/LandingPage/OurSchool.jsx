@@ -11,7 +11,7 @@ const courses = [
 const OurSchool = () => {
   return (
     <>
-      <div className=" bg-custom-cream flex flex-col justify-center items-center text-center gap-3 pb-2 md:pb-6">
+     {/*  <div className=" bg-custom-cream flex flex-col justify-center items-center text-center gap-3 pb-2 md:pb-6">
         <div>
           <h1 className="text-xl font-bold">The Learning Platform</h1>
           <p className="text-lg">which helps you to</p>
@@ -43,7 +43,7 @@ const OurSchool = () => {
             <p className="text-xs font-medium">Explore</p>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div>
         <div className='px-12 text-black'>

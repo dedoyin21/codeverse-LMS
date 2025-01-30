@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import NavBar from './NavBar'
-import codeverseLogo from '../../src/assets/codeverseLogo.svg'
+/* import NavBar from './NavBar' */
+import codeverseLogo from "/src/assets/codeverseLogo.svg";
 import { GithubIcon, MailIcon } from 'lucide-react'
 
 function Signup() {
@@ -45,8 +45,8 @@ function Signup() {
   }
 
   return (
-    <div className="min-h-screen bg-custom-cream flex justify-center items-center">
-      <div className="bg-gray-300 flex flex-col gap-8 p-8 rounded-lg shadow-lg w-[400px] max-w-md">
+    <div className="min-h-screen bg-custom-cream flex justify-center items-center pt-8 md:pt-20">
+      <div className="bg-yellow-50 flex flex-col gap-8 p-8 rounded-lg shadow-lg w-[400px] max-w-md">
         <h2 className="text-2xl font-sans font-bold mb-6 text-center text-black">
           Sign Up
         </h2>
@@ -115,7 +115,7 @@ function Signup() {
           <div className="w-full">
             <button
               type="submit"
-              className="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600"
+              className="w-full bg-custom-red text-white py-2 rounded hover:bg-red-700"
             >
               Create Account
             </button>
