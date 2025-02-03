@@ -6,6 +6,8 @@ import { GoGraph } from "react-icons/go";
 import { MdOutlineHeadsetMic, MdSpaceDashboard } from "react-icons/md";
 import { TbLayoutSidebarLeftCollapse, TbLayoutSidebarLeftExpand } from "react-icons/tb";
 import { TiCalendar } from "react-icons/ti";
+import codeverseLogo from '../assets/codeverseLogo.svg'
+import codeicon from "../assets/codeicon.svg";
 
 
 const DashboardLayout = () => {
@@ -32,14 +34,17 @@ const DashboardLayout = () => {
   return (
     <div className="w-full flex">
       {/* Sidebar section */}
-      <div className={`${open ? "w-72 p-5" : "w-20 p-4"} bg-zinc-900 h-screen pt-8 relative duration-300 ease-in-out`}>
+      <div className={`${open ? "w-72 p-5" : "w-20 p-4"} bg-white h-screen pt-8 relative duration-300 ease-in-out`}>
         <div className="absolute cursor-pointer -right-4 top-9 w-8 h-8 p-0.5 bg-zinc-50 border-2 rounded-full text-xl flex items-center justify-center transition-all" onClick={() => setOpen(!open)}>
           {open ? <TbLayoutSidebarLeftExpand /> : <TbLayoutSidebarLeftCollapse />}
         </div>
 
         <div className="flex gap-x-4 items-center">
-          <img src="https://cdn.pixabay.com/photo/2017/02/18/19/20/logo-2078018_640.png" alt="logo" className="w-10 h-10 rounded-full" />
-          <h1 className={`text-zinc-50 font-semibold text-xl ${!open && "hidden"}`}>Admin Dashboard</h1>
+        {open ? (
+            <img src={codeverseLogo} alt="logo" className="w-30" />
+          ) : (
+            <img src={codeicon} alt="logo" className=" rounded-full" />
+          )}
         </div>
 
         <ul className="pt-6 space-y-0.5">
@@ -47,17 +52,17 @@ const DashboardLayout = () => {
             <li key={index} className="flex flex-col rounded-md py-3 px-4 text-zinc-50 hover:bg-zinc-800/50 transition-all" onClick={() => toggleSubMenu(Menu.key)}>
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <span className="text-lg">{Menu.icon}</span>
-                  <span className={`${!open && "hidden"}`}>{Menu.title}</span>
+                  <span className="text-lg text-black">{Menu.icon}</span>
+                  <span className={`text-black ${!open && "hidden"}`}>{Menu.title}</span>
                 </div>
                 {Menu.subMenu && (
-                  <span className={`ml-auto transition-transform ${subMenus[Menu.key] ? "rotate-180" : ""} ${!open && "hidden"}`}>
+                  <span className={`ml-auto text-black transition-transform ${subMenus[Menu.key] ? "rotate-180" : ""} ${!open && "hidden"}`}>
                     {subMenus[Menu.key] ? <FaChevronDown /> : <FaChevronRight />}
                   </span>
                 )}
               </div>
               {Menu.subMenu && subMenus[Menu.key] && (
-                <ul className="pl-3 pt-4 text-zinc-300">
+                <ul className="pl-3 pt-4 text-black">
                   {Menu.subMenu.map((subMenu, subIndex) => (
                     <li key={subIndex} className="text-sm flex items-center gap-x-2 py-3 px-2 hover:bg-zinc-800 rounded-lg">
                       <FaChevronRight className="text-xs" />

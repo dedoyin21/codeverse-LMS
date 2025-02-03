@@ -11,9 +11,9 @@ const Themelayout = ({ children }) => {
       {/* Theme Toggle Button at the Bottom */}
       <button
         onClick={toggleTheme}
-        className="fixed bottom-5 left-1/2 transform -translate-x-1/2 px-4 py-2 bg-gray-800 text-white dark:bg-gray-200 dark:text-gray-900 rounded-full shadow-lg transition duration-300 hover:opacity-80"
+        className="absolute bottom-9 right-5 px-8 py-2 bg-gray-800 text-white dark:bg-gray-200 dark:text-gray-900 rounded-full shadow-lg transition duration-300 hover:opacity-80"
       >
-        {theme === "light" ? "🌙 Dark Mode" : "☀️ Light Mode"}
+        {theme === "light" ? "🌙" : "☀️"}
       </button>
     </div>
   );
