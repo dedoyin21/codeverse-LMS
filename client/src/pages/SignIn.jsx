@@ -1,4 +1,4 @@
-import Login from '../component/Login'
+import Login from '../component/LandingPage/Login'
 
 function SignIn() {
   return (

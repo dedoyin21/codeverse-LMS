@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 const CoursePage = () => {
   const videos = Array.from({ length: 15 }, (_, index) => ({

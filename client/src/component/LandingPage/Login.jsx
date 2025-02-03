@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import NavBar from './NavBar'
-import codeverseLogo from '../../src/assets/codeverseLogo.svg'
+import NavBar from "../LandingPage/NavBar"
+import codeverseLogo from "/src/assets/codeverseLogo.svg";
 import { GithubIcon, MailIcon } from 'lucide-react'
 
 const Login = () => {
@@ -39,8 +39,8 @@ const Login = () => {
 
   return (
     <>
-      
-      <div className="flex justify-center items-center  bg-custom-cream mt-10 md:mt-36">
+      <NavBar/>
+      <div className="flex justify-center items-center  bg-custom-cream mt-10 md:pt-36">
         <div className="bg-yellow-50 flex flex-col gap-8 p-8 rounded-lg shadow-lg w-[1000px] max-w-md">
           <div className="flex flex-col gap-1 justify-center items-center">
             <h2 className="text-2xl font-sans font-bold mb-6 text-center text-black">

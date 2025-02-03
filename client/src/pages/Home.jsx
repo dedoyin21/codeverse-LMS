@@ -1,10 +1,10 @@
-import NavBar from '../component/NavBar'
-import Hero from '../component/Hero'
-import OurSchool from '../component/OurSchool'
-import Courses from '../component/Courses'
-import Footer from '../component/Footer'
-import Admission from '../component/Admission'
-import ReviewSlider from '../component/review'
+import NavBar from '../component/LandingPage/NavBar'
+import Hero from '../component/LandingPage/Hero'
+import OurSchool from '../component/LandingPage/OurSchool'
+import Courses from '../component/LandingPage/Courses'
+import Footer from '../component/LandingPage/Footer'
+import Admission from '../component/LandingPage/Admission'
+import ReviewSlider from '../component/LandingPage/review'
 
 
 function Home() {
